@@ -1,0 +1,25 @@
+{
+  "downloaded_at_utc": "2026-06-09T21:29:25Z",
+  "sources": [
+    {
+      "name": "OpenFootball World Cup",
+      "type": "zip_archive",
+      "url": "https://github.com/openfootball/worldcup/archive/refs/heads/master.zip",
+      "local_path": "data/raw/openfootball-worldcup/master.zip",
+      "extracted_path": "data/raw/openfootball-worldcup/worldcup-master",
+      "license": "CC0-1.0"
+    },
+    {
+      "name": "FIFA Men's World Ranking",
+      "type": "json",
+      "url": "https://api.fifa.com/api/v3/rankings?gender=1",
+      "local_path": "data/raw/fifa-rankings/men_rankings_latest.json"
+    },
+    {
+      "name": "FIFA Men's World Ranking Schedules",
+      "type": "json",
+      "url": "https://api.fifa.com/api/v3/rankingschedules/all?type=0&gender=1",
+      "local_path": "data/raw/fifa-rankings/men_ranking_schedules.json"
+    }
+  ]
+}
