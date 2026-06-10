@@ -13,7 +13,10 @@
           <p class="eyebrow">2026 World Cup</p>
           <h1>Match Predictor</h1>
         </div>
-        <p id="ranking-date" class="ranking-date"></p>
+        <div class="topbar-meta">
+          <p id="ranking-date" class="ranking-date"></p>
+          <button id="method-button" class="method-button" type="button" aria-label="Show model information">?</button>
+        </div>
       </header>
 
       <section class="controls" aria-label="Prediction controls">
@@ -78,6 +81,37 @@
         <ol id="history-list" class="history-list"></ol>
       </section>
     </main>
+
+    <div id="method-modal" class="modal-backdrop" hidden>
+      <section class="method-modal" role="dialog" aria-modal="true" aria-labelledby="method-title">
+        <div class="method-header">
+          <h2 id="method-title">Prediction Approach</h2>
+          <button id="method-close" class="method-close" type="button" aria-label="Close model information">×</button>
+        </div>
+        <dl class="method-list">
+          <div>
+            <dt>Model</dt>
+            <dd id="method-model"></dd>
+          </div>
+          <div>
+            <dt>Alpha</dt>
+            <dd id="method-alpha"></dd>
+          </div>
+          <div>
+            <dt>Training data</dt>
+            <dd id="method-training"></dd>
+          </div>
+          <div>
+            <dt>Raw score</dt>
+            <dd>Two phase-split Poisson goal models predict 90-minute expected goals for Country A and Country B.</dd>
+          </div>
+          <div>
+            <dt>Selected score</dt>
+            <dd id="method-selection"></dd>
+          </div>
+        </dl>
+      </section>
+    </div>
 
     <script src="app.js"></script>
   </body>

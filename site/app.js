@@ -1,6 +1,7 @@
 const state = {
   payload: null,
   teamsByCode: new Map(),
+  lastMethodFocus: null,
 };
 
 const elements = {
@@ -17,6 +18,13 @@ const elements = {
   selectedScore: document.querySelector("#selected-score"),
   historyPair: document.querySelector("#history-pair"),
   historyList: document.querySelector("#history-list"),
+  methodButton: document.querySelector("#method-button"),
+  methodModal: document.querySelector("#method-modal"),
+  methodClose: document.querySelector("#method-close"),
+  methodModel: document.querySelector("#method-model"),
+  methodAlpha: document.querySelector("#method-alpha"),
+  methodTraining: document.querySelector("#method-training"),
+  methodSelection: document.querySelector("#method-selection"),
 };
 
 async function init() {
@@ -44,6 +52,10 @@ function populateTeams() {
   elements.countryA.value = state.payload.teams[0].code;
   elements.countryB.value = state.payload.teams[1].code;
   elements.rankingDate.textContent = `FIFA ranking ${formatDate(state.payload.metadata.ranking_snapshot_date)}`;
+  elements.methodModel.textContent = "Phase-split Poisson score predictor";
+  elements.methodAlpha.textContent = state.payload.metadata.model_alpha.toFixed(1);
+  elements.methodTraining.textContent = `Completed World Cup matches from ${formatYears(state.payload.metadata.train_years)}.`;
+  updateMethodSelection();
 }
 
 function bindEvents() {
@@ -53,6 +65,18 @@ function bindEvents() {
     input.addEventListener("change", render);
   });
   elements.kicktipp.addEventListener("change", render);
+  elements.methodButton.addEventListener("click", openMethodModal);
+  elements.methodClose.addEventListener("click", closeMethodModal);
+  elements.methodModal.addEventListener("click", (event) => {
+    if (event.target === elements.methodModal) {
+      closeMethodModal();
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !elements.methodModal.hidden) {
+      closeMethodModal();
+    }
+  });
 }
 
 function render() {
@@ -81,7 +105,30 @@ function render() {
   const prediction = state.payload.predictions[`${codeA}|${codeB}|${phase}|${scoreSelector}`];
   elements.rawScore.textContent = `${prediction.expected_goals_a.toFixed(2)} - ${prediction.expected_goals_b.toFixed(2)}`;
   elements.selectedScore.textContent = `${prediction.selected_goals_a} - ${prediction.selected_goals_b}`;
+  updateMethodSelection();
   renderHistory(codeA, codeB);
+}
+
+function updateMethodSelection() {
+  if (!state.payload) {
+    return;
+  }
+  elements.methodSelection.textContent = elements.kicktipp.checked
+    ? "KickTipp chooses the scoreline with the highest expected value under the scoring rules."
+    : "Standard chooses the most likely exact scoreline from the independent Poisson score grid.";
+}
+
+function openMethodModal() {
+  state.lastMethodFocus = document.activeElement;
+  elements.methodModal.hidden = false;
+  elements.methodClose.focus();
+}
+
+function closeMethodModal() {
+  elements.methodModal.hidden = true;
+  if (state.lastMethodFocus) {
+    state.lastMethodFocus.focus();
+  }
 }
 
 function renderHistory(codeA, codeB) {
@@ -155,6 +202,16 @@ function titleCase(value) {
     .split("_")
     .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
     .join(" ");
+}
+
+function formatYears(years) {
+  if (!years.length) {
+    return "the available training data";
+  }
+  if (years.length === 1) {
+    return `${years[0]}`;
+  }
+  return `${years[0]}-${years[years.length - 1]}`;
 }
 
 init().catch((error) => {
