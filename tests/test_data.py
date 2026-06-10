@@ -24,6 +24,18 @@ def test_rolling_split_values_are_stable():
     ]
 
 
+def test_rolling_splits_support_other_training_windows():
+    three_year_splits = rolling_splits(train_window=3)
+    five_year_splits = rolling_splits(train_window=5)
+
+    assert three_year_splits[0].train_years == (1994, 1998, 2002)
+    assert three_year_splits[0].test_year == 2006
+    assert three_year_splits[-1].train_years == (2010, 2014, 2018)
+    assert three_year_splits[-1].test_year == 2022
+    assert five_year_splits[0].train_years == (1994, 1998, 2002, 2006, 2010)
+    assert five_year_splits[0].test_year == 2014
+
+
 def test_clean_data_has_expected_played_counts():
     matches = completed_matches(load_matches())
     counts = matches.groupby("tournament_year").size().to_dict()

@@ -13,6 +13,7 @@ BACKTEST_SPLITS = (
     ((2002, 2006, 2010, 2014), 2018),
     ((2006, 2010, 2014, 2018), 2022),
 )
+BACKTEST_TOURNAMENT_YEARS = (1994, 1998, 2002, 2006, 2010, 2014, 2018, 2022)
 EXPECTED_PLAYED_COUNTS = {
     1930: 18,
     1934: 17,
@@ -78,12 +79,12 @@ NORMALIZED_POINTS_NUMERIC_FEATURES = [
 NORMALIZED_POINTS_CATEGORICAL_FEATURES = REDUCED_CATEGORICAL_FEATURES
 NORMALIZED_POINTS_FEATURE_COLUMNS = NORMALIZED_POINTS_NUMERIC_FEATURES + NORMALIZED_POINTS_CATEGORICAL_FEATURES
 TARGET_COLUMNS = ["goals_a_90", "goals_b_90"]
-BACKTEST_YEARS = sorted({year for train_years, test_year in BACKTEST_SPLITS for year in (*train_years, test_year)})
+BACKTEST_YEARS = list(BACKTEST_TOURNAMENT_YEARS)
 
 
 @dataclass(frozen=True)
 class BacktestSplit:
-    train_years: tuple[int, int, int, int]
+    train_years: tuple[int, ...]
     test_year: int
 
 
@@ -122,8 +123,17 @@ def completed_matches(matches: pd.DataFrame) -> pd.DataFrame:
     return matches[matches["outcome_90"].notna()].copy()
 
 
-def rolling_splits() -> list[BacktestSplit]:
-    return [BacktestSplit(tuple(train_years), test_year) for train_years, test_year in BACKTEST_SPLITS]
+def rolling_splits(train_window: int = 4) -> list[BacktestSplit]:
+    if train_window < 1:
+        raise ValueError("train_window must be at least 1")
+    if train_window >= len(BACKTEST_TOURNAMENT_YEARS):
+        raise ValueError("train_window must leave at least one tournament year for testing")
+    splits = []
+    for index in range(train_window, len(BACKTEST_TOURNAMENT_YEARS)):
+        train_years = BACKTEST_TOURNAMENT_YEARS[index - train_window : index]
+        test_year = BACKTEST_TOURNAMENT_YEARS[index]
+        splits.append(BacktestSplit(tuple(train_years), test_year))
+    return splits
 
 
 def split_train_test(matches: pd.DataFrame, split: BacktestSplit) -> tuple[pd.DataFrame, pd.DataFrame]:
