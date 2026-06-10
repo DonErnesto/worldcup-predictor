@@ -110,6 +110,15 @@ def test_mode_score_predictor_uses_most_likely_poisson_score_not_rounded_mean():
     assert (predictions >= 0).all().all()
 
 
+def test_mode_score_predictor_accepts_poisson_alpha():
+    predictor = ModeScorePhaseSplitScorePredictor(alpha=0.3)
+
+    assert predictor.group_predictor.goals_a_model.named_steps["model"].alpha == 0.3
+    assert predictor.group_predictor.goals_b_model.named_steps["model"].alpha == 0.3
+    assert predictor.knockout_predictor.goals_a_model.named_steps["model"].alpha == 0.3
+    assert predictor.knockout_predictor.goals_b_model.named_steps["model"].alpha == 0.3
+
+
 def test_team_perspective_rows_double_matches_and_map_goals():
     rows = pd.DataFrame(
         {

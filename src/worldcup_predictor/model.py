@@ -19,7 +19,7 @@ from .data import (
     NUMERIC_FEATURES,
     REDUCED_CATEGORICAL_FEATURES,
     REDUCED_FEATURE_COLUMNS,
-REDUCED_NUMERIC_FEATURES,
+    REDUCED_NUMERIC_FEATURES,
 )
 
 
@@ -53,6 +53,7 @@ def _one_hot_encoder() -> OneHotEncoder:
 def build_goal_pipeline(
     numeric_features: list[str] | None = None,
     categorical_features: list[str] | None = None,
+    alpha: float = 1.0,
 ) -> Pipeline:
     numeric_features = numeric_features or NUMERIC_FEATURES
     categorical_features = categorical_features or CATEGORICAL_FEATURES
@@ -83,7 +84,7 @@ def build_goal_pipeline(
     return Pipeline(
         steps=[
             ("preprocessor", preprocessor),
-            ("model", PoissonRegressor(alpha=1.0, max_iter=300, tol=1e-5)),
+            ("model", PoissonRegressor(alpha=alpha, max_iter=300, tol=1e-5)),
         ]
     )
 
@@ -95,13 +96,14 @@ class ScorePredictor:
         numeric_features: list[str] | None = None,
         categorical_features: list[str] | None = None,
         score_selection: str = "rounded",
+        alpha: float = 1.0,
     ) -> None:
         self.feature_columns = feature_columns or FEATURE_COLUMNS
         if score_selection not in {"rounded", "mode"}:
             raise ValueError("score_selection must be 'rounded' or 'mode'")
         self.score_selection = score_selection
-        self.goals_a_model = build_goal_pipeline(numeric_features, categorical_features)
-        self.goals_b_model = build_goal_pipeline(numeric_features, categorical_features)
+        self.goals_a_model = build_goal_pipeline(numeric_features, categorical_features, alpha=alpha)
+        self.goals_b_model = build_goal_pipeline(numeric_features, categorical_features, alpha=alpha)
 
     def fit(self, train_rows: pd.DataFrame) -> "ScorePredictor":
         x_train = train_rows[self.feature_columns].copy()
@@ -152,9 +154,22 @@ class PhaseSplitScorePredictor:
         numeric_features: list[str] | None = None,
         categorical_features: list[str] | None = None,
         score_selection: str = "rounded",
+        alpha: float = 1.0,
     ) -> None:
-        self.group_predictor = ScorePredictor(feature_columns, numeric_features, categorical_features, score_selection)
-        self.knockout_predictor = ScorePredictor(feature_columns, numeric_features, categorical_features, score_selection)
+        self.group_predictor = ScorePredictor(
+            feature_columns,
+            numeric_features,
+            categorical_features,
+            score_selection,
+            alpha=alpha,
+        )
+        self.knockout_predictor = ScorePredictor(
+            feature_columns,
+            numeric_features,
+            categorical_features,
+            score_selection,
+            alpha=alpha,
+        )
 
     def fit(self, train_rows: pd.DataFrame) -> "PhaseSplitScorePredictor":
         group_rows = train_rows[~train_rows["is_knockout"].astype(bool)]
@@ -215,8 +230,8 @@ class NormalizedPointsPhaseSplitScorePredictor(PhaseSplitScorePredictor):
 
 
 class ModeScorePhaseSplitScorePredictor(PhaseSplitScorePredictor):
-    def __init__(self) -> None:
-        super().__init__(score_selection="mode")
+    def __init__(self, alpha: float = 1.0) -> None:
+        super().__init__(score_selection="mode", alpha=alpha)
 
 
 def make_team_perspective_rows(rows: pd.DataFrame) -> pd.DataFrame:
