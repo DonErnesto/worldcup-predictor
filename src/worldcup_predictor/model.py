@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import math
+from functools import lru_cache
 
 import numpy as np
 import pandas as pd
@@ -21,6 +22,7 @@ from .data import (
     REDUCED_FEATURE_COLUMNS,
     REDUCED_NUMERIC_FEATURES,
 )
+from .evaluation import Score, score_points
 
 
 PERSPECTIVE_NUMERIC_FEATURES = [
@@ -107,8 +109,8 @@ class ScorePredictor:
         alpha: float = 1.0,
     ) -> None:
         self.feature_columns = feature_columns or FEATURE_COLUMNS
-        if score_selection not in {"rounded", "mode"}:
-            raise ValueError("score_selection must be 'rounded' or 'mode'")
+        if score_selection not in {"rounded", "mode", "expected_points"}:
+            raise ValueError("score_selection must be 'rounded', 'mode', or 'expected_points'")
         self.score_selection = score_selection
         self.goals_a_model = build_goal_pipeline(numeric_features, categorical_features, alpha=alpha)
         self.goals_b_model = build_goal_pipeline(numeric_features, categorical_features, alpha=alpha)
@@ -124,6 +126,12 @@ class ScorePredictor:
         if self.score_selection == "mode":
             scores = [
                 most_likely_independent_poisson_score(expected_a, expected_b)
+                for expected_a, expected_b in zip(rates["expected_goals_a"], rates["expected_goals_b"])
+            ]
+            return pd.DataFrame(scores, columns=["pred_goals_a", "pred_goals_b"], index=rows.index)
+        if self.score_selection == "expected_points":
+            scores = [
+                best_expected_points_score(expected_a, expected_b)
                 for expected_a, expected_b in zip(rates["expected_goals_a"], rates["expected_goals_b"])
             ]
             return pd.DataFrame(scores, columns=["pred_goals_a", "pred_goals_b"], index=rows.index)
@@ -240,6 +248,11 @@ class NormalizedPointsPhaseSplitScorePredictor(PhaseSplitScorePredictor):
 class ModeScorePhaseSplitScorePredictor(PhaseSplitScorePredictor):
     def __init__(self, alpha: float = 1.0) -> None:
         super().__init__(score_selection="mode", alpha=alpha)
+
+
+class ExpectedPointsPhaseSplitScorePredictor(PhaseSplitScorePredictor):
+    def __init__(self, alpha: float = 0.1) -> None:
+        super().__init__(score_selection="expected_points", alpha=alpha)
 
 
 def calculate_team_goal_averages(train_rows: pd.DataFrame) -> pd.Series:
@@ -492,6 +505,61 @@ def most_likely_independent_poisson_score(
     likelihoods = independent_poisson_score_likelihoods(expected_goals_a, expected_goals_b, max_goals=max_goals)
     best = likelihoods.sort_values(["probability", "goals_a", "goals_b"], ascending=[False, True, True]).iloc[0]
     return int(best.goals_a), int(best.goals_b)
+
+
+def best_expected_points_score(
+    expected_goals_a: float,
+    expected_goals_b: float,
+    max_goals: int = 10,
+) -> tuple[int, int]:
+    grid = expected_points_score_grid(expected_goals_a, expected_goals_b, max_goals=max_goals)
+    best = grid.iloc[0]
+    return int(best.goals_a), int(best.goals_b)
+
+
+def expected_points_score_grid(
+    expected_goals_a: float,
+    expected_goals_b: float,
+    max_goals: int = 10,
+) -> pd.DataFrame:
+    grid = independent_poisson_score_likelihoods(expected_goals_a, expected_goals_b, max_goals=max_goals)
+    probabilities = grid["probability"].to_numpy(dtype=float)
+    grid["expected_points"] = _score_points_matrix(max_goals).dot(probabilities)
+    grid["total_goals"] = grid["goals_a"] + grid["goals_b"]
+    return grid.sort_values(
+        ["expected_points", "probability", "total_goals", "goals_a", "goals_b"],
+        ascending=[False, False, True, True, True],
+        ignore_index=True,
+    )
+
+
+def expected_points_for_candidate(
+    actual_likelihoods: pd.DataFrame,
+    candidate_goals_a: int,
+    candidate_goals_b: int,
+) -> float:
+    candidate = Score(candidate_goals_a, candidate_goals_b)
+    return float(
+        sum(
+            float(row.probability) * score_points(Score(int(row.goals_a), int(row.goals_b)), candidate)
+            for row in actual_likelihoods.itertuples(index=False)
+        )
+    )
+
+
+@lru_cache(maxsize=None)
+def _score_points_matrix(max_goals: int) -> np.ndarray:
+    scores = [(goals_a, goals_b) for goals_a in range(max_goals + 1) for goals_b in range(max_goals + 1)]
+    return np.array(
+        [
+            [
+                score_points(Score(actual_a, actual_b), Score(candidate_a, candidate_b))
+                for actual_a, actual_b in scores
+            ]
+            for candidate_a, candidate_b in scores
+        ],
+        dtype=float,
+    )
 
 
 def independent_poisson_score_likelihoods(

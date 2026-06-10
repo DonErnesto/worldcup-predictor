@@ -7,6 +7,7 @@ import pandas as pd
 from .data import assert_data_quality, load_matches, rolling_splits, split_train_test
 from .evaluation import evaluate_predictions
 from .model import (
+    ExpectedPointsPhaseSplitScorePredictor,
     GoalAverageModeScorePhaseSplitScorePredictor,
     ModeScorePhaseSplitScorePredictor,
     MostCommonScorePredictor,
@@ -20,6 +21,7 @@ from .model import (
 PREDICTORS = {
     "phase_split_poisson": PhaseSplitScorePredictor,
     "mode_score_phase_split_poisson": ModeScorePhaseSplitScorePredictor,
+    "expected_points_phase_split_poisson": ExpectedPointsPhaseSplitScorePredictor,
     "goal_average_mode_score_phase_split_poisson": GoalAverageModeScorePhaseSplitScorePredictor,
     "symmetric_mode_score_phase_split_poisson": SymmetricModeScorePhaseSplitScorePredictor,
     "reduced_phase_split_poisson": ReducedPhaseSplitScorePredictor,

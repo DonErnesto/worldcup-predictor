@@ -8,6 +8,7 @@ from worldcup_predictor.data import (
     split_train_test,
 )
 from worldcup_predictor.model import (
+    ExpectedPointsPhaseSplitScorePredictor,
     GOAL_AVERAGE_FEATURE_COLUMNS,
     GoalAverageModeScorePhaseSplitScorePredictor,
     ModeScorePhaseSplitScorePredictor,
@@ -16,7 +17,10 @@ from worldcup_predictor.model import (
     PhaseSplitScorePredictor,
     ReducedPhaseSplitScorePredictor,
     SymmetricModeScorePhaseSplitScorePredictor,
+    best_expected_points_score,
     calculate_team_goal_averages,
+    expected_points_for_candidate,
+    expected_points_score_grid,
     independent_poisson_score_likelihoods,
     make_team_perspective_rows,
     most_likely_independent_poisson_score,
@@ -120,6 +124,58 @@ def test_mode_score_predictor_accepts_poisson_alpha():
     assert predictor.group_predictor.goals_b_model.named_steps["model"].alpha == 0.3
     assert predictor.knockout_predictor.goals_a_model.named_steps["model"].alpha == 0.3
     assert predictor.knockout_predictor.goals_b_model.named_steps["model"].alpha == 0.3
+
+
+def test_expected_points_for_candidate_uses_best_tier_non_cumulative_scoring():
+    actual_likelihoods = pd.DataFrame(
+        {
+            "goals_a": [2],
+            "goals_b": [1],
+            "probability": [1.0],
+        }
+    )
+
+    assert expected_points_for_candidate(actual_likelihoods, 2, 1) == 4.0
+    assert expected_points_for_candidate(actual_likelihoods, 1, 0) == 3.0
+    assert expected_points_for_candidate(actual_likelihoods, 1, 1) == 0.0
+
+
+def test_expected_points_can_favor_safer_score_over_rounded_mean():
+    assert best_expected_points_score(2.2, 0.7, max_goals=6) == (1, 0)
+
+
+def test_expected_points_allows_draw_candidates():
+    assert best_expected_points_score(0.8, 0.8, max_goals=6) == (0, 0)
+
+
+def test_expected_points_tie_break_is_deterministic():
+    first_grid = expected_points_score_grid(1.4, 1.4, max_goals=4)
+    second_grid = expected_points_score_grid(1.4, 1.4, max_goals=4)
+
+    assert first_grid.iloc[0]["score"] == second_grid.iloc[0]["score"]
+    assert first_grid.iloc[0]["score"] == "0-1"
+
+
+def test_expected_points_predictor_returns_scores_and_rates():
+    matches = load_matches()
+    train, test = split_train_test(matches, split=BacktestSplit((2006, 2010, 2014, 2018), 2022))
+    predictor = ExpectedPointsPhaseSplitScorePredictor().fit(train)
+    sample = pd.concat(
+        [
+            test[~test["is_knockout"].astype(bool)].head(2),
+            test[test["is_knockout"].astype(bool)].head(2),
+        ]
+    )
+
+    predictions = predictor.predict(sample)
+    rates = predictor.predict_rates(sample)
+
+    assert predictor.group_predictor.goals_a_model.named_steps["model"].alpha == 0.1
+    assert list(predictions.columns) == ["pred_goals_a", "pred_goals_b"]
+    assert list(rates.columns) == ["expected_goals_a", "expected_goals_b"]
+    assert len(predictions) == 4
+    assert (predictions >= 0).all().all()
+    assert (rates >= 0).all().all()
 
 
 def test_calculate_team_goal_averages_uses_both_match_sides():
