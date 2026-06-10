@@ -73,3 +73,61 @@ class ScorePredictor:
             },
             index=rows.index,
         )
+
+
+class PhaseSplitScorePredictor:
+    def __init__(self) -> None:
+        self.group_predictor = ScorePredictor()
+        self.knockout_predictor = ScorePredictor()
+
+    def fit(self, train_rows: pd.DataFrame) -> "PhaseSplitScorePredictor":
+        group_rows = train_rows[~train_rows["is_knockout"].astype(bool)]
+        knockout_rows = train_rows[train_rows["is_knockout"].astype(bool)]
+        if group_rows.empty:
+            raise ValueError("Cannot fit phase-split predictor without group-stage rows")
+        if knockout_rows.empty:
+            raise ValueError("Cannot fit phase-split predictor without knockout rows")
+        self.group_predictor.fit(group_rows)
+        self.knockout_predictor.fit(knockout_rows)
+        return self
+
+    def predict(self, rows: pd.DataFrame) -> pd.DataFrame:
+        predictions = pd.DataFrame(index=rows.index, columns=["pred_goals_a", "pred_goals_b"], dtype=int)
+        group_mask = ~rows["is_knockout"].astype(bool)
+        knockout_mask = rows["is_knockout"].astype(bool)
+        if group_mask.any():
+            predictions.loc[group_mask, ["pred_goals_a", "pred_goals_b"]] = self.group_predictor.predict(rows[group_mask])
+        if knockout_mask.any():
+            predictions.loc[knockout_mask, ["pred_goals_a", "pred_goals_b"]] = self.knockout_predictor.predict(rows[knockout_mask])
+        return predictions.astype(int)
+
+
+class MostCommonScorePredictor:
+    def __init__(self, by_phase: bool = True) -> None:
+        self.by_phase = by_phase
+        self.default_score: tuple[int, int] | None = None
+        self.phase_scores: dict[bool, tuple[int, int]] = {}
+
+    def fit(self, train_rows: pd.DataFrame) -> "MostCommonScorePredictor":
+        self.default_score = self._most_common_score(train_rows)
+        if self.by_phase:
+            for is_knockout, phase_rows in train_rows.groupby(train_rows["is_knockout"].astype(bool)):
+                self.phase_scores[bool(is_knockout)] = self._most_common_score(phase_rows)
+        return self
+
+    def predict(self, rows: pd.DataFrame) -> pd.DataFrame:
+        if self.default_score is None:
+            raise ValueError("Predictor must be fit before prediction")
+        predicted = []
+        for row in rows.itertuples(index=False):
+            score = self.phase_scores.get(bool(row.is_knockout), self.default_score)
+            predicted.append(score)
+        return pd.DataFrame(predicted, columns=["pred_goals_a", "pred_goals_b"], index=rows.index)
+
+    @staticmethod
+    def _most_common_score(rows: pd.DataFrame) -> tuple[int, int]:
+        counts = rows.groupby(["goals_a_90", "goals_b_90"]).size().sort_values(ascending=False)
+        if counts.empty:
+            raise ValueError("Cannot derive most common score from empty rows")
+        goals_a, goals_b = counts.index[0]
+        return int(goals_a), int(goals_b)

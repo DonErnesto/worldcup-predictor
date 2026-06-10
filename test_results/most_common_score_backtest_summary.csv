@@ -1,0 +1,5 @@
+test_year,matches,total_points,avg_points_per_match,exact_score_rate,outcome_accuracy,actual_draws,draw_accuracy
+2010,64,52,0.8125,0.125,0.28125,18,1.0
+2014,64,50,0.78125,0.125,0.265625,17,1.0
+2018,64,36,0.5625,0.0625,0.21875,14,1.0
+2022,64,63,0.984375,0.0625,0.375,15,0.3333333333333333
