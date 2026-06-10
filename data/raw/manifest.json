@@ -20,6 +20,24 @@
       "type": "json",
       "url": "https://api.fifa.com/api/v3/rankingschedules/all?type=0&gender=1",
       "local_path": "data/raw/fifa-rankings/men_ranking_schedules.json"
+    },
+    {
+      "name": "FIFA Men's World Ranking by Schedule",
+      "type": "json",
+      "url": "https://api.fifa.com/api/v3/rankingsbyschedule?rankingScheduleId={id}",
+      "local_path": "data/raw/fifa-rankings/by_schedule/",
+      "downloaded_at_utc": "2026-06-10T01:13:03Z",
+      "snapshots": [
+        {"tournament_year": 1994, "ranking_schedule_id": "id10", "local_file": "1994_id10.json"},
+        {"tournament_year": 1998, "ranking_schedule_id": "id50", "local_file": "1998_id50.json"},
+        {"tournament_year": 2002, "ranking_schedule_id": "id97", "local_file": "2002_id97.json"},
+        {"tournament_year": 2006, "ranking_schedule_id": "id145", "local_file": "2006_id145.json"},
+        {"tournament_year": 2010, "ranking_schedule_id": "id9276", "local_file": "2010_id9276.json"},
+        {"tournament_year": 2014, "ranking_schedule_id": "id10719", "local_file": "2014_id10719.json"},
+        {"tournament_year": 2018, "ranking_schedule_id": "id12189", "local_file": "2018_id12189.json"},
+        {"tournament_year": 2022, "ranking_schedule_id": "id13603", "local_file": "2022_id13603.json"},
+        {"tournament_year": 2026, "ranking_schedule_id": "id15065", "local_file": "2026_id15065.json"}
+      ]
     }
   ]
 }
