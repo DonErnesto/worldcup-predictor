@@ -1,0 +1,3 @@
+predictor,matches,total_points,avg_points_per_match,zero_rate,exact_score_rate,outcome_accuracy
+mode_score_phase_split_poisson,256,324,1.265625,0.53515625,0.109375,0.46484375
+symmetric_mode_score_phase_split_poisson,256,311,1.21484375,0.546875,0.10546875,0.453125

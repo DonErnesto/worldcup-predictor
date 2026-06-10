@@ -19,8 +19,28 @@ from .data import (
     NUMERIC_FEATURES,
     REDUCED_CATEGORICAL_FEATURES,
     REDUCED_FEATURE_COLUMNS,
-    REDUCED_NUMERIC_FEATURES,
+REDUCED_NUMERIC_FEATURES,
 )
+
+
+PERSPECTIVE_NUMERIC_FEATURES = [
+    "is_knockout",
+    "focal_rank",
+    "opponent_rank",
+    "focal_rank_diff",
+    "focal_ranking_points",
+    "opponent_ranking_points",
+    "focal_ranking_points_diff",
+    "same_confederation",
+]
+PERSPECTIVE_CATEGORICAL_FEATURES = [
+    "focal_team_code",
+    "opponent_team_code",
+    "stage",
+    "focal_confederation",
+    "opponent_confederation",
+]
+PERSPECTIVE_FEATURE_COLUMNS = PERSPECTIVE_NUMERIC_FEATURES + PERSPECTIVE_CATEGORICAL_FEATURES
 
 
 def _one_hot_encoder() -> OneHotEncoder:
@@ -197,6 +217,127 @@ class NormalizedPointsPhaseSplitScorePredictor(PhaseSplitScorePredictor):
 class ModeScorePhaseSplitScorePredictor(PhaseSplitScorePredictor):
     def __init__(self) -> None:
         super().__init__(score_selection="mode")
+
+
+def make_team_perspective_rows(rows: pd.DataFrame) -> pd.DataFrame:
+    focal_a = pd.DataFrame(
+        {
+            "match_id": rows.get("match_id"),
+            "is_knockout": rows["is_knockout"],
+            "stage": rows["stage"],
+            "focal_team_code": rows["country_a_code"],
+            "opponent_team_code": rows["country_b_code"],
+            "focal_rank": rows["rank_a"],
+            "opponent_rank": rows["rank_b"],
+            "focal_rank_diff": rows["rank_b"] - rows["rank_a"],
+            "focal_ranking_points": rows["ranking_points_a"],
+            "opponent_ranking_points": rows["ranking_points_b"],
+            "focal_ranking_points_diff": rows["ranking_points_a"] - rows["ranking_points_b"],
+            "focal_confederation": rows["confederation_a"],
+            "opponent_confederation": rows["confederation_b"],
+            "same_confederation": rows["same_confederation"],
+            "goals_for_90": rows["goals_a_90"] if "goals_a_90" in rows else pd.NA,
+        },
+        index=rows.index,
+    )
+    focal_b = pd.DataFrame(
+        {
+            "match_id": rows.get("match_id"),
+            "is_knockout": rows["is_knockout"],
+            "stage": rows["stage"],
+            "focal_team_code": rows["country_b_code"],
+            "opponent_team_code": rows["country_a_code"],
+            "focal_rank": rows["rank_b"],
+            "opponent_rank": rows["rank_a"],
+            "focal_rank_diff": rows["rank_a"] - rows["rank_b"],
+            "focal_ranking_points": rows["ranking_points_b"],
+            "opponent_ranking_points": rows["ranking_points_a"],
+            "focal_ranking_points_diff": rows["ranking_points_b"] - rows["ranking_points_a"],
+            "focal_confederation": rows["confederation_b"],
+            "opponent_confederation": rows["confederation_a"],
+            "same_confederation": rows["same_confederation"],
+            "goals_for_90": rows["goals_b_90"] if "goals_b_90" in rows else pd.NA,
+        },
+        index=rows.index,
+    )
+    return pd.concat([focal_a, focal_b], ignore_index=True)
+
+
+class TeamPerspectiveGoalPredictor:
+    def __init__(self) -> None:
+        self.model = build_goal_pipeline(PERSPECTIVE_NUMERIC_FEATURES, PERSPECTIVE_CATEGORICAL_FEATURES)
+
+    def fit(self, train_rows: pd.DataFrame) -> "TeamPerspectiveGoalPredictor":
+        perspective_rows = make_team_perspective_rows(train_rows)
+        x_train = perspective_rows[PERSPECTIVE_FEATURE_COLUMNS].copy()
+        y_train = perspective_rows["goals_for_90"].astype(int)
+        self.model.fit(x_train, y_train)
+        return self
+
+    def predict_rates(self, rows: pd.DataFrame) -> pd.DataFrame:
+        perspective_rows = make_team_perspective_rows(rows)
+        focal_rows = perspective_rows.iloc[: len(rows)]
+        opponent_rows = perspective_rows.iloc[len(rows) :]
+        expected_a = self.model.predict(focal_rows[PERSPECTIVE_FEATURE_COLUMNS])
+        expected_b = self.model.predict(opponent_rows[PERSPECTIVE_FEATURE_COLUMNS])
+        return pd.DataFrame(
+            {
+                "expected_goals_a": np.clip(expected_a, 0, None),
+                "expected_goals_b": np.clip(expected_b, 0, None),
+            },
+            index=rows.index,
+        )
+
+    def predict(self, rows: pd.DataFrame) -> pd.DataFrame:
+        rates = self.predict_rates(rows)
+        scores = [
+            most_likely_independent_poisson_score(expected_a, expected_b)
+            for expected_a, expected_b in zip(rates["expected_goals_a"], rates["expected_goals_b"])
+        ]
+        return pd.DataFrame(scores, columns=["pred_goals_a", "pred_goals_b"], index=rows.index)
+
+
+class SymmetricModeScorePhaseSplitScorePredictor:
+    def __init__(self) -> None:
+        self.group_predictor = TeamPerspectiveGoalPredictor()
+        self.knockout_predictor = TeamPerspectiveGoalPredictor()
+
+    def fit(self, train_rows: pd.DataFrame) -> "SymmetricModeScorePhaseSplitScorePredictor":
+        group_rows = train_rows[~train_rows["is_knockout"].astype(bool)]
+        knockout_rows = train_rows[train_rows["is_knockout"].astype(bool)]
+        if group_rows.empty:
+            raise ValueError("Cannot fit symmetric phase-split predictor without group-stage rows")
+        if knockout_rows.empty:
+            raise ValueError("Cannot fit symmetric phase-split predictor without knockout rows")
+        self.group_predictor.fit(group_rows)
+        self.knockout_predictor.fit(knockout_rows)
+        return self
+
+    def predict(self, rows: pd.DataFrame) -> pd.DataFrame:
+        predictions = pd.DataFrame(index=rows.index, columns=["pred_goals_a", "pred_goals_b"], dtype=int)
+        group_mask = ~rows["is_knockout"].astype(bool)
+        knockout_mask = rows["is_knockout"].astype(bool)
+        if group_mask.any():
+            predictions.loc[group_mask, ["pred_goals_a", "pred_goals_b"]] = self.group_predictor.predict(rows[group_mask])
+        if knockout_mask.any():
+            predictions.loc[knockout_mask, ["pred_goals_a", "pred_goals_b"]] = self.knockout_predictor.predict(
+                rows[knockout_mask]
+            )
+        return predictions.astype(int)
+
+    def predict_rates(self, rows: pd.DataFrame) -> pd.DataFrame:
+        rates = pd.DataFrame(index=rows.index, columns=["expected_goals_a", "expected_goals_b"], dtype=float)
+        group_mask = ~rows["is_knockout"].astype(bool)
+        knockout_mask = rows["is_knockout"].astype(bool)
+        if group_mask.any():
+            rates.loc[group_mask, ["expected_goals_a", "expected_goals_b"]] = self.group_predictor.predict_rates(
+                rows[group_mask]
+            )
+        if knockout_mask.any():
+            rates.loc[knockout_mask, ["expected_goals_a", "expected_goals_b"]] = self.knockout_predictor.predict_rates(
+                rows[knockout_mask]
+            )
+        return rates.astype(float)
 
 
 class MostCommonScorePredictor:

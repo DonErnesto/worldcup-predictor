@@ -13,7 +13,9 @@ from worldcup_predictor.model import (
     NormalizedPointsPhaseSplitScorePredictor,
     PhaseSplitScorePredictor,
     ReducedPhaseSplitScorePredictor,
+    SymmetricModeScorePhaseSplitScorePredictor,
     independent_poisson_score_likelihoods,
+    make_team_perspective_rows,
     most_likely_independent_poisson_score,
     symmetric_score_shape_likelihoods,
 )
@@ -106,6 +108,88 @@ def test_mode_score_predictor_uses_most_likely_poisson_score_not_rounded_mean():
     assert list(predictions.columns) == ["pred_goals_a", "pred_goals_b"]
     assert len(predictions) == 4
     assert (predictions >= 0).all().all()
+
+
+def test_team_perspective_rows_double_matches_and_map_goals():
+    rows = pd.DataFrame(
+        {
+            "match_id": [1],
+            "is_knockout": [False],
+            "stage": ["group"],
+            "country_a_code": ["AAA"],
+            "country_b_code": ["BBB"],
+            "rank_a": [10],
+            "rank_b": [25],
+            "ranking_points_a": [1700.0],
+            "ranking_points_b": [1500.0],
+            "confederation_a": ["UEFA"],
+            "confederation_b": ["CAF"],
+            "same_confederation": [False],
+            "goals_a_90": [2],
+            "goals_b_90": [1],
+        }
+    )
+
+    perspective = make_team_perspective_rows(rows)
+
+    assert len(perspective) == 2
+    assert perspective.iloc[0]["focal_team_code"] == "AAA"
+    assert perspective.iloc[0]["opponent_team_code"] == "BBB"
+    assert perspective.iloc[0]["focal_rank_diff"] == 15
+    assert perspective.iloc[0]["focal_ranking_points_diff"] == 200.0
+    assert perspective.iloc[0]["goals_for_90"] == 2
+    assert perspective.iloc[1]["focal_team_code"] == "BBB"
+    assert perspective.iloc[1]["opponent_team_code"] == "AAA"
+    assert perspective.iloc[1]["focal_rank_diff"] == -15
+    assert perspective.iloc[1]["focal_ranking_points_diff"] == -200.0
+    assert perspective.iloc[1]["goals_for_90"] == 1
+
+
+def test_symmetric_predictor_swapping_teams_swaps_predictions():
+    matches = load_matches()
+    train, test = split_train_test(matches, split=BacktestSplit((2006, 2010, 2014, 2018), 2022))
+    predictor = SymmetricModeScorePhaseSplitScorePredictor().fit(train)
+    row = test.head(1).copy()
+    swapped = row.copy()
+    swap_pairs = [
+        ("country_a", "country_b"),
+        ("country_a_code", "country_b_code"),
+        ("rank_a", "rank_b"),
+        ("ranking_points_a", "ranking_points_b"),
+        ("confederation_a", "confederation_b"),
+    ]
+    for left, right in swap_pairs:
+        swapped[left] = row[right].values
+        swapped[right] = row[left].values
+    swapped["rank_diff"] = swapped["rank_b"] - swapped["rank_a"]
+    swapped["ranking_points_diff"] = swapped["ranking_points_a"] - swapped["ranking_points_b"]
+
+    original_rates = predictor.predict_rates(row).iloc[0]
+    swapped_rates = predictor.predict_rates(swapped).iloc[0]
+    original_scores = predictor.predict(row).iloc[0]
+    swapped_scores = predictor.predict(swapped).iloc[0]
+
+    assert original_rates["expected_goals_a"] == swapped_rates["expected_goals_b"]
+    assert original_rates["expected_goals_b"] == swapped_rates["expected_goals_a"]
+    assert original_scores["pred_goals_a"] == swapped_scores["pred_goals_b"]
+    assert original_scores["pred_goals_b"] == swapped_scores["pred_goals_a"]
+
+
+def test_symmetric_predictor_returns_scores_and_rates():
+    matches = load_matches()
+    train, test = split_train_test(matches, split=BacktestSplit((2006, 2010, 2014, 2018), 2022))
+    predictor = SymmetricModeScorePhaseSplitScorePredictor().fit(train)
+    sample = test.head(4)
+
+    predictions = predictor.predict(sample)
+    rates = predictor.predict_rates(sample)
+
+    assert list(predictions.columns) == ["pred_goals_a", "pred_goals_b"]
+    assert list(rates.columns) == ["expected_goals_a", "expected_goals_b"]
+    assert len(predictions) == 4
+    assert len(rates) == 4
+    assert (predictions >= 0).all().all()
+    assert (rates >= 0).all().all()
 
 
 def test_symmetric_score_shape_likelihoods_fold_mirrored_scores():

@@ -12,12 +12,14 @@ from .model import (
     NormalizedPointsPhaseSplitScorePredictor,
     PhaseSplitScorePredictor,
     ReducedPhaseSplitScorePredictor,
+    SymmetricModeScorePhaseSplitScorePredictor,
 )
 
 
 PREDICTORS = {
     "phase_split_poisson": PhaseSplitScorePredictor,
     "mode_score_phase_split_poisson": ModeScorePhaseSplitScorePredictor,
+    "symmetric_mode_score_phase_split_poisson": SymmetricModeScorePhaseSplitScorePredictor,
     "reduced_phase_split_poisson": ReducedPhaseSplitScorePredictor,
     "normalized_points_phase_split_poisson": NormalizedPointsPhaseSplitScorePredictor,
     "most_common_score": MostCommonScorePredictor,
