@@ -6,12 +6,18 @@ import pandas as pd
 
 from .data import assert_data_quality, load_matches, rolling_splits, split_train_test
 from .evaluation import evaluate_predictions
-from .model import MostCommonScorePredictor, PhaseSplitScorePredictor, ReducedPhaseSplitScorePredictor
+from .model import (
+    MostCommonScorePredictor,
+    NormalizedPointsPhaseSplitScorePredictor,
+    PhaseSplitScorePredictor,
+    ReducedPhaseSplitScorePredictor,
+)
 
 
 PREDICTORS = {
     "phase_split_poisson": PhaseSplitScorePredictor,
     "reduced_phase_split_poisson": ReducedPhaseSplitScorePredictor,
+    "normalized_points_phase_split_poisson": NormalizedPointsPhaseSplitScorePredictor,
     "most_common_score": MostCommonScorePredictor,
 }
 

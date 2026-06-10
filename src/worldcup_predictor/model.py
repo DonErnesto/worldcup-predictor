@@ -11,6 +11,9 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from .data import (
     CATEGORICAL_FEATURES,
     FEATURE_COLUMNS,
+    NORMALIZED_POINTS_CATEGORICAL_FEATURES,
+    NORMALIZED_POINTS_FEATURE_COLUMNS,
+    NORMALIZED_POINTS_NUMERIC_FEATURES,
     NUMERIC_FEATURES,
     REDUCED_CATEGORICAL_FEATURES,
     REDUCED_FEATURE_COLUMNS,
@@ -131,6 +134,15 @@ class ReducedPhaseSplitScorePredictor(PhaseSplitScorePredictor):
             feature_columns=REDUCED_FEATURE_COLUMNS,
             numeric_features=REDUCED_NUMERIC_FEATURES,
             categorical_features=REDUCED_CATEGORICAL_FEATURES,
+        )
+
+
+class NormalizedPointsPhaseSplitScorePredictor(PhaseSplitScorePredictor):
+    def __init__(self) -> None:
+        super().__init__(
+            feature_columns=NORMALIZED_POINTS_FEATURE_COLUMNS,
+            numeric_features=NORMALIZED_POINTS_NUMERIC_FEATURES,
+            categorical_features=NORMALIZED_POINTS_CATEGORICAL_FEATURES,
         )
 
 

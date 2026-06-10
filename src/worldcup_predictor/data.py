@@ -68,6 +68,15 @@ REDUCED_CATEGORICAL_FEATURES = [
     "stage",
 ]
 REDUCED_FEATURE_COLUMNS = REDUCED_NUMERIC_FEATURES + REDUCED_CATEGORICAL_FEATURES
+NORMALIZED_POINTS_NUMERIC_FEATURES = [
+    "is_knockout",
+    "rank_a",
+    "rank_b",
+    "rank_diff",
+    "ranking_points_diff_normalized_by_year",
+]
+NORMALIZED_POINTS_CATEGORICAL_FEATURES = REDUCED_CATEGORICAL_FEATURES
+NORMALIZED_POINTS_FEATURE_COLUMNS = NORMALIZED_POINTS_NUMERIC_FEATURES + NORMALIZED_POINTS_CATEGORICAL_FEATURES
 TARGET_COLUMNS = ["goals_a_90", "goals_b_90"]
 BACKTEST_YEARS = sorted({year for train_years, test_year in BACKTEST_SPLITS for year in (*train_years, test_year)})
 
@@ -83,6 +92,29 @@ def load_matches(path: Path | str = DATA_PATH) -> pd.DataFrame:
     for column in ["is_knockout", "same_confederation"]:
         if column in matches.columns:
             matches[column] = matches[column].astype("boolean")
+    return add_normalized_ranking_points_diff(matches)
+
+
+def add_normalized_ranking_points_diff(matches: pd.DataFrame) -> pd.DataFrame:
+    matches = matches.copy()
+    team_points = pd.concat(
+        [
+            matches[["tournament_year", "country_a_code", "ranking_points_a"]].rename(
+                columns={"country_a_code": "country_code", "ranking_points_a": "ranking_points"}
+            ),
+            matches[["tournament_year", "country_b_code", "ranking_points_b"]].rename(
+                columns={"country_b_code": "country_code", "ranking_points_b": "ranking_points"}
+            ),
+        ],
+        ignore_index=True,
+    )
+    team_points = team_points.dropna(subset=["country_code", "ranking_points"]).drop_duplicates(
+        ["tournament_year", "country_code"]
+    )
+    points_std_by_year = team_points.groupby("tournament_year")["ranking_points"].std()
+    matches["ranking_points_diff_normalized_by_year"] = (
+        matches["ranking_points_diff"] / matches["tournament_year"].map(points_std_by_year)
+    )
     return matches
 
 

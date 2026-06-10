@@ -1,7 +1,18 @@
 import pandas as pd
 
-from worldcup_predictor.data import BacktestSplit, REDUCED_FEATURE_COLUMNS, load_matches, split_train_test
-from worldcup_predictor.model import MostCommonScorePredictor, PhaseSplitScorePredictor, ReducedPhaseSplitScorePredictor
+from worldcup_predictor.data import (
+    BacktestSplit,
+    NORMALIZED_POINTS_FEATURE_COLUMNS,
+    REDUCED_FEATURE_COLUMNS,
+    load_matches,
+    split_train_test,
+)
+from worldcup_predictor.model import (
+    MostCommonScorePredictor,
+    NormalizedPointsPhaseSplitScorePredictor,
+    PhaseSplitScorePredictor,
+    ReducedPhaseSplitScorePredictor,
+)
 
 
 def test_phase_split_predictor_trains_group_and_knockout_models():
@@ -34,6 +45,28 @@ def test_reduced_phase_split_predictor_uses_slim_feature_set():
     matches = load_matches()
     train, test = split_train_test(matches, split=BacktestSplit((2006, 2010, 2014, 2018), 2022))
     predictor = ReducedPhaseSplitScorePredictor().fit(train)
+    sample = test.head(4)
+    predictions = predictor.predict(sample)
+    assert list(predictions.columns) == ["pred_goals_a", "pred_goals_b"]
+    assert len(predictions) == 4
+    assert (predictions >= 0).all().all()
+
+
+def test_normalized_points_phase_split_predictor_uses_normalized_points_feature():
+    assert NORMALIZED_POINTS_FEATURE_COLUMNS == [
+        "is_knockout",
+        "rank_a",
+        "rank_b",
+        "rank_diff",
+        "ranking_points_diff_normalized_by_year",
+        "country_a_code",
+        "country_b_code",
+        "stage",
+    ]
+
+    matches = load_matches()
+    train, test = split_train_test(matches, split=BacktestSplit((2006, 2010, 2014, 2018), 2022))
+    predictor = NormalizedPointsPhaseSplitScorePredictor().fit(train)
     sample = test.head(4)
     predictions = predictor.predict(sample)
     assert list(predictions.columns) == ["pred_goals_a", "pred_goals_b"]
