@@ -12,11 +12,13 @@ def test_site_payload_has_2026_teams_and_ordered_predictions(site_payload):
     payload = site_payload
 
     assert len(payload["teams"]) == 48
-    assert payload["metadata"]["model_name"] == "mode_score_phase_split_poisson"
+    assert payload["metadata"]["model_name"] == "phase_split_poisson_alpha_0_1"
+    assert payload["metadata"]["model_alpha"] == 0.1
     assert payload["metadata"]["ranking_snapshot_date"] == "2026-04-01"
+    assert {selector["id"] for selector in payload["score_selectors"]} == {"standard", "kicktipp"}
 
     predictions = payload["predictions"]
-    assert len(predictions) == 48 * 47 * 2
+    assert len(predictions) == 48 * 47 * 2 * 2
     assert not any(key.split("|")[0] == key.split("|")[1] for key in predictions)
 
 
@@ -28,6 +30,7 @@ def test_site_predictions_include_required_fields(site_payload):
         "country_a_code",
         "country_b_code",
         "phase",
+        "score_selector",
         "rank_a",
         "rank_b",
         "ranking_points_a",
@@ -37,6 +40,14 @@ def test_site_predictions_include_required_fields(site_payload):
         "selected_goals_a",
         "selected_goals_b",
     }.issubset(prediction)
+
+
+def test_site_predictions_include_standard_and_kicktipp_selectors(site_payload):
+    payload = site_payload
+    team_a, team_b = payload["teams"][0], payload["teams"][1]
+
+    assert f"{team_a['code']}|{team_b['code']}|group|standard" in payload["predictions"]
+    assert f"{team_a['code']}|{team_b['code']}|group|kicktipp" in payload["predictions"]
 
 
 def test_head_to_head_score_normalization_handles_reversed_order():

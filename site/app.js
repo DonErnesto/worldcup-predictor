@@ -6,6 +6,7 @@ const state = {
 const elements = {
   countryA: document.querySelector("#country-a"),
   countryB: document.querySelector("#country-b"),
+  kicktipp: document.querySelector("#kicktipp-mode"),
   rankingDate: document.querySelector("#ranking-date"),
   warning: document.querySelector("#same-team-warning"),
   teamAName: document.querySelector("#team-a-name"),
@@ -51,12 +52,14 @@ function bindEvents() {
   document.querySelectorAll("input[name='phase']").forEach((input) => {
     input.addEventListener("change", render);
   });
+  elements.kicktipp.addEventListener("change", render);
 }
 
 function render() {
   const codeA = elements.countryA.value;
   const codeB = elements.countryB.value;
   const phase = document.querySelector("input[name='phase']:checked").value;
+  const scoreSelector = elements.kicktipp.checked ? "kicktipp" : "standard";
   const teamA = state.teamsByCode.get(codeA);
   const teamB = state.teamsByCode.get(codeB);
   const sameTeam = codeA === codeB;
@@ -75,7 +78,7 @@ function render() {
     return;
   }
 
-  const prediction = state.payload.predictions[`${codeA}|${codeB}|${phase}`];
+  const prediction = state.payload.predictions[`${codeA}|${codeB}|${phase}|${scoreSelector}`];
   elements.rawScore.textContent = `${prediction.expected_goals_a.toFixed(2)} - ${prediction.expected_goals_b.toFixed(2)}`;
   elements.selectedScore.textContent = `${prediction.selected_goals_a} - ${prediction.selected_goals_b}`;
   renderHistory(codeA, codeB);

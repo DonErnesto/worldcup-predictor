@@ -88,7 +88,7 @@ h2 {
 
 .controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(230px, 0.7fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(230px, 0.7fr) minmax(140px, 0.45fr);
   gap: 14px;
   padding: 16px;
   margin-bottom: 12px;
@@ -121,9 +121,9 @@ fieldset {
   border: 0;
 }
 
-.phase-toggle {
+.phase-toggle,
+.kicktipp-toggle {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 6px;
   height: 44px;
   padding: 4px;
@@ -132,17 +132,28 @@ fieldset {
   background: var(--surface-strong);
 }
 
-.phase-toggle label {
+.phase-toggle {
+  grid-template-columns: 1fr 1fr;
+}
+
+.kicktipp-toggle {
+  grid-template-columns: 1fr;
+}
+
+.phase-toggle label,
+.kicktipp-toggle {
   position: relative;
 }
 
-.phase-toggle input {
+.phase-toggle input,
+.kicktipp-toggle input {
   position: absolute;
   opacity: 0;
   pointer-events: none;
 }
 
-.phase-toggle span {
+.phase-toggle span,
+.kicktipp-toggle span {
   display: grid;
   place-items: center;
   height: 34px;
@@ -152,7 +163,8 @@ fieldset {
   font-size: 14px;
 }
 
-.phase-toggle input:checked + span {
+.phase-toggle input:checked + span,
+.kicktipp-toggle input:checked + span {
   background: var(--accent);
   color: var(--accent-ink);
 }

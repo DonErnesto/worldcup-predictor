@@ -8,11 +8,26 @@ from typing import Any
 import pandas as pd
 
 from .data import completed_matches, load_matches
-from .model import ModeScorePhaseSplitScorePredictor
+from .model import ExpectedPointsPhaseSplitScorePredictor, ModeScorePhaseSplitScorePredictor
 
 
-MODEL_NAME = "mode_score_phase_split_poisson"
+MODEL_NAME = "phase_split_poisson_alpha_0_1"
+MODEL_ALPHA = 0.1
 TRAIN_YEARS = tuple(range(1994, 2023, 4))
+SCORE_SELECTORS = [
+    {
+        "id": "standard",
+        "name": "Standard",
+        "model_name": "mode_score_phase_split_poisson",
+        "default": True,
+    },
+    {
+        "id": "kicktipp",
+        "name": "KickTipp",
+        "model_name": "expected_points_phase_split_poisson",
+        "default": False,
+    },
+]
 
 
 def build_site_payload(
@@ -23,27 +38,34 @@ def build_site_payload(
     teams = _world_cup_2026_teams(matches)
     train_rows = completed_matches(matches)
     train_rows = train_rows[train_rows["tournament_year"].isin(TRAIN_YEARS)].copy()
-    predictor = ModeScorePhaseSplitScorePredictor().fit(train_rows)
 
     prediction_rows = _prediction_feature_rows(teams)
-    selected_scores = predictor.predict(prediction_rows)
-    expected_goals = predictor.predict_rates(prediction_rows)
-    prediction_rows = pd.concat(
-        [
-            prediction_rows.reset_index(drop=True),
-            selected_scores.reset_index(drop=True),
-            expected_goals.reset_index(drop=True),
-        ],
-        axis=1,
-    )
+    prediction_frames = []
+    for selector in SCORE_SELECTORS:
+        predictor = _selector_predictor(selector["id"]).fit(train_rows)
+        selected_scores = predictor.predict(prediction_rows)
+        expected_goals = predictor.predict_rates(prediction_rows)
+        selector_rows = pd.concat(
+            [
+                prediction_rows.reset_index(drop=True),
+                selected_scores.reset_index(drop=True),
+                expected_goals.reset_index(drop=True),
+            ],
+            axis=1,
+        )
+        selector_rows["score_selector"] = selector["id"]
+        prediction_frames.append(selector_rows)
+    prediction_rows = pd.concat(prediction_frames, ignore_index=True)
 
     return {
         "metadata": {
             "model_name": MODEL_NAME,
+            "model_alpha": MODEL_ALPHA,
             "ranking_snapshot_date": _ranking_snapshot_date(ranking_schedule_path),
             "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
             "train_years": list(TRAIN_YEARS),
         },
+        "score_selectors": SCORE_SELECTORS,
         "teams": _team_records(teams),
         "predictions": _prediction_records(prediction_rows, teams),
         "head_to_head": _head_to_head_records(matches, teams),
@@ -80,6 +102,14 @@ def normalize_head_to_head_match(match: dict[str, Any], country_a_code: str, cou
         "country_b": country_b_code,
         "score": f"{int(goals_a)}-{int(goals_b)}",
     }
+
+
+def _selector_predictor(selector_id: str) -> ModeScorePhaseSplitScorePredictor | ExpectedPointsPhaseSplitScorePredictor:
+    if selector_id == "standard":
+        return ModeScorePhaseSplitScorePredictor(alpha=MODEL_ALPHA)
+    if selector_id == "kicktipp":
+        return ExpectedPointsPhaseSplitScorePredictor(alpha=MODEL_ALPHA)
+    raise ValueError(f"Unknown score selector: {selector_id}")
 
 
 def _world_cup_2026_teams(matches: pd.DataFrame) -> pd.DataFrame:
@@ -168,11 +198,12 @@ def _prediction_records(prediction_rows: pd.DataFrame, teams: pd.DataFrame) -> d
     team_by_code = teams.set_index("code").to_dict("index")
     predictions: dict[str, dict[str, Any]] = {}
     for row in prediction_rows.itertuples(index=False):
-        key = f"{row.country_a_code}|{row.country_b_code}|{row.phase}"
+        key = f"{row.country_a_code}|{row.country_b_code}|{row.phase}|{row.score_selector}"
         predictions[key] = {
             "country_a_code": row.country_a_code,
             "country_b_code": row.country_b_code,
             "phase": row.phase,
+            "score_selector": row.score_selector,
             "stage": row.stage,
             "rank_a": int(row.rank_a),
             "rank_b": int(row.rank_b),
