@@ -8,12 +8,15 @@ from worldcup_predictor.data import (
     split_train_test,
 )
 from worldcup_predictor.model import (
+    GOAL_AVERAGE_FEATURE_COLUMNS,
+    GoalAverageModeScorePhaseSplitScorePredictor,
     ModeScorePhaseSplitScorePredictor,
     MostCommonScorePredictor,
     NormalizedPointsPhaseSplitScorePredictor,
     PhaseSplitScorePredictor,
     ReducedPhaseSplitScorePredictor,
     SymmetricModeScorePhaseSplitScorePredictor,
+    calculate_team_goal_averages,
     independent_poisson_score_likelihoods,
     make_team_perspective_rows,
     most_likely_independent_poisson_score,
@@ -117,6 +120,46 @@ def test_mode_score_predictor_accepts_poisson_alpha():
     assert predictor.group_predictor.goals_b_model.named_steps["model"].alpha == 0.3
     assert predictor.knockout_predictor.goals_a_model.named_steps["model"].alpha == 0.3
     assert predictor.knockout_predictor.goals_b_model.named_steps["model"].alpha == 0.3
+
+
+def test_calculate_team_goal_averages_uses_both_match_sides():
+    rows = pd.DataFrame(
+        {
+            "country_a_code": ["AAA", "BBB", "AAA"],
+            "country_b_code": ["BBB", "AAA", "CCC"],
+            "goals_a_90": [2, 0, 3],
+            "goals_b_90": [1, 1, 0],
+        }
+    )
+
+    averages = calculate_team_goal_averages(rows)
+
+    assert averages["AAA"] == 2.0
+    assert averages["BBB"] == 0.5
+    assert averages["CCC"] == 0.0
+
+
+def test_goal_average_predictor_adds_window_features_and_uses_alpha_point_one():
+    assert {
+        "avg_goals_for_a_window",
+        "avg_goals_for_b_window",
+        "avg_goals_for_diff_window",
+    }.issubset(GOAL_AVERAGE_FEATURE_COLUMNS)
+
+    matches = load_matches()
+    train, test = split_train_test(matches, split=BacktestSplit((2006, 2010, 2014, 2018), 2022))
+    predictor = GoalAverageModeScorePhaseSplitScorePredictor().fit(train)
+    sample = test.head(4)
+
+    predictions = predictor.predict(sample)
+    rates = predictor.predict_rates(sample)
+
+    assert predictor.predictor.group_predictor.goals_a_model.named_steps["model"].alpha == 0.1
+    assert list(predictions.columns) == ["pred_goals_a", "pred_goals_b"]
+    assert list(rates.columns) == ["expected_goals_a", "expected_goals_b"]
+    assert len(predictions) == 4
+    assert (predictions >= 0).all().all()
+    assert (rates >= 0).all().all()
 
 
 def test_team_perspective_rows_double_matches_and_map_goals():

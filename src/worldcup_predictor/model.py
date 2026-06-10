@@ -42,6 +42,14 @@ PERSPECTIVE_CATEGORICAL_FEATURES = [
 ]
 PERSPECTIVE_FEATURE_COLUMNS = PERSPECTIVE_NUMERIC_FEATURES + PERSPECTIVE_CATEGORICAL_FEATURES
 
+GOAL_AVERAGE_NUMERIC_FEATURES = NUMERIC_FEATURES + [
+    "avg_goals_for_a_window",
+    "avg_goals_for_b_window",
+    "avg_goals_for_diff_window",
+]
+GOAL_AVERAGE_CATEGORICAL_FEATURES = CATEGORICAL_FEATURES
+GOAL_AVERAGE_FEATURE_COLUMNS = GOAL_AVERAGE_NUMERIC_FEATURES + GOAL_AVERAGE_CATEGORICAL_FEATURES
+
 
 def _one_hot_encoder() -> OneHotEncoder:
     try:
@@ -232,6 +240,69 @@ class NormalizedPointsPhaseSplitScorePredictor(PhaseSplitScorePredictor):
 class ModeScorePhaseSplitScorePredictor(PhaseSplitScorePredictor):
     def __init__(self, alpha: float = 1.0) -> None:
         super().__init__(score_selection="mode", alpha=alpha)
+
+
+def calculate_team_goal_averages(train_rows: pd.DataFrame) -> pd.Series:
+    appearances = pd.concat(
+        [
+            pd.DataFrame(
+                {
+                    "team_code": train_rows["country_a_code"],
+                    "goals_for_90": train_rows["goals_a_90"],
+                }
+            ),
+            pd.DataFrame(
+                {
+                    "team_code": train_rows["country_b_code"],
+                    "goals_for_90": train_rows["goals_b_90"],
+                }
+            ),
+        ],
+        ignore_index=True,
+    )
+    return appearances.groupby("team_code")["goals_for_90"].mean().astype(float)
+
+
+class GoalAverageModeScorePhaseSplitScorePredictor:
+    def __init__(self, alpha: float = 0.1) -> None:
+        self.goal_average_by_code = pd.Series(dtype=float)
+        self.global_goal_average = 0.0
+        self.predictor = PhaseSplitScorePredictor(
+            feature_columns=GOAL_AVERAGE_FEATURE_COLUMNS,
+            numeric_features=GOAL_AVERAGE_NUMERIC_FEATURES,
+            categorical_features=GOAL_AVERAGE_CATEGORICAL_FEATURES,
+            score_selection="mode",
+            alpha=alpha,
+        )
+
+    def fit(self, train_rows: pd.DataFrame) -> "GoalAverageModeScorePhaseSplitScorePredictor":
+        self.goal_average_by_code = calculate_team_goal_averages(train_rows)
+        if self.goal_average_by_code.empty:
+            raise ValueError("Cannot fit goal-average predictor without completed training rows")
+        self.global_goal_average = float(self.goal_average_by_code.mean())
+        self.predictor.fit(self._add_goal_average_features(train_rows))
+        return self
+
+    def predict(self, rows: pd.DataFrame) -> pd.DataFrame:
+        return self.predictor.predict(self._add_goal_average_features(rows))
+
+    def predict_rates(self, rows: pd.DataFrame) -> pd.DataFrame:
+        return self.predictor.predict_rates(self._add_goal_average_features(rows))
+
+    def explain_row(self, row: pd.Series, top_n: int = 8) -> dict[str, pd.DataFrame]:
+        enriched = self._add_goal_average_features(row.to_frame().T)
+        return self.predictor.explain_row(enriched.iloc[0], top_n=top_n)
+
+    def _add_goal_average_features(self, rows: pd.DataFrame) -> pd.DataFrame:
+        enriched = rows.copy()
+        avg_a = enriched["country_a_code"].map(self.goal_average_by_code).fillna(self.global_goal_average)
+        avg_b = enriched["country_b_code"].map(self.goal_average_by_code).fillna(self.global_goal_average)
+        enriched["avg_goals_for_a_window"] = avg_a.astype(float)
+        enriched["avg_goals_for_b_window"] = avg_b.astype(float)
+        enriched["avg_goals_for_diff_window"] = (
+            enriched["avg_goals_for_a_window"] - enriched["avg_goals_for_b_window"]
+        )
+        return enriched
 
 
 def make_team_perspective_rows(rows: pd.DataFrame) -> pd.DataFrame:

@@ -1,0 +1,9 @@
+experiment,alpha,train_window,test_year,matches,total_points,avg_points_per_match,exact_score_rate,outcome_accuracy,actual_draws,draw_accuracy
+mode_score_phase_split_poisson_alpha_0_1,0.1,4,2010,64,73,1.140625,0.109375,0.453125,18,0.2222222222222222
+mode_score_phase_split_poisson_alpha_0_1,0.1,4,2014,64,99,1.546875,0.125,0.546875,17,0.23529411764705882
+mode_score_phase_split_poisson_alpha_0_1,0.1,4,2018,64,95,1.484375,0.140625,0.546875,14,0.5
+mode_score_phase_split_poisson_alpha_0_1,0.1,4,2022,64,76,1.1875,0.125,0.40625,15,0.4666666666666667
+goal_average_mode_score_phase_split_poisson_alpha_0_1,0.1,4,2010,64,97,1.515625,0.140625,0.578125,18,0.5555555555555556
+goal_average_mode_score_phase_split_poisson_alpha_0_1,0.1,4,2014,64,78,1.21875,0.125,0.421875,17,0.35294117647058826
+goal_average_mode_score_phase_split_poisson_alpha_0_1,0.1,4,2018,64,74,1.15625,0.078125,0.453125,14,0.5
+goal_average_mode_score_phase_split_poisson_alpha_0_1,0.1,4,2022,64,73,1.140625,0.125,0.390625,15,0.26666666666666666
