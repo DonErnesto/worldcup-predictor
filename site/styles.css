@@ -1,0 +1,307 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-strong: #eef2f7;
+  --ink: #172033;
+  --muted: #667085;
+  --line: #d8dee9;
+  --accent: #0f766e;
+  --accent-ink: #ffffff;
+  --warn: #b42318;
+  --shadow: 0 14px 30px rgba(23, 32, 51, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.app-shell {
+  width: min(1040px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 28px 0 48px;
+}
+
+.topbar,
+.scoreboard,
+.history,
+.controls {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+.eyebrow,
+.ranking-date,
+.team-meta,
+.metric-label,
+.section-heading p {
+  color: var(--muted);
+}
+
+.eyebrow,
+.metric-label {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.ranking-date {
+  font-size: 14px;
+  text-align: right;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(230px, 0.7fr);
+  gap: 14px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+label span,
+legend {
+  display: block;
+  margin-bottom: 6px;
+  color: #344054;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+select {
+  width: 100%;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  padding: 0 12px;
+}
+
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.phase-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  height: 44px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface-strong);
+}
+
+.phase-toggle label {
+  position: relative;
+}
+
+.phase-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.phase-toggle span {
+  display: grid;
+  place-items: center;
+  height: 34px;
+  margin: 0;
+  border-radius: 5px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.phase-toggle input:checked + span {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.warning {
+  margin: 0 0 12px;
+  color: var(--warn);
+  font-weight: 700;
+}
+
+.scoreboard {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.7fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.team-block,
+.prediction-block {
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--surface-strong);
+  padding: 16px;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.team-name {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.team-meta {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.prediction-block {
+  gap: 14px;
+  text-align: center;
+  background: #0b1324;
+  color: #fff;
+}
+
+.prediction-block .metric-label {
+  color: #aab6ca;
+}
+
+.prediction-block strong {
+  display: block;
+  margin-top: 2px;
+  font-size: clamp(26px, 4vw, 40px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.history {
+  padding: 16px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.history-list li {
+  display: grid;
+  grid-template-columns: 110px 1fr max-content;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.history-list li:last-child {
+  border-bottom: 0;
+}
+
+.history-date,
+.history-stage {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.history-score {
+  font-size: 20px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.empty-state {
+  padding: 18px 0 2px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    width: min(100vw - 20px, 1040px);
+    padding-top: 14px;
+  }
+
+  .topbar,
+  .controls,
+  .scoreboard,
+  .history {
+    box-shadow: none;
+  }
+
+  .topbar,
+  .controls,
+  .scoreboard,
+  .section-heading {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .topbar,
+  .section-heading,
+  .align-right {
+    text-align: left;
+  }
+
+  .ranking-date {
+    text-align: left;
+  }
+
+  .history-list li {
+    grid-template-columns: 1fr max-content;
+  }
+
+  .history-date {
+    grid-column: 1 / -1;
+  }
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>World Cup Predictor</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">2026 World Cup</p>
+          <h1>Match Predictor</h1>
+        </div>
+        <p id="ranking-date" class="ranking-date"></p>
+      </header>
+
+      <section class="controls" aria-label="Prediction controls">
+        <label>
+          <span>Country A</span>
+          <select id="country-a"></select>
+        </label>
+        <label>
+          <span>Country B</span>
+          <select id="country-b"></select>
+        </label>
+        <fieldset>
+          <legend>Phase</legend>
+          <div class="phase-toggle">
+            <label>
+              <input type="radio" name="phase" value="group" checked>
+              <span>Group</span>
+            </label>
+            <label>
+              <input type="radio" name="phase" value="knockout">
+              <span>Knockout</span>
+            </label>
+          </div>
+        </fieldset>
+      </section>
+
+      <p id="same-team-warning" class="warning" hidden>Choose two different countries.</p>
+
+      <section class="scoreboard" aria-label="Prediction">
+        <div class="team-block">
+          <p id="team-a-name" class="team-name"></p>
+          <p id="team-a-meta" class="team-meta"></p>
+        </div>
+        <div class="prediction-block">
+          <div>
+            <span class="metric-label">Raw score</span>
+            <strong id="raw-score"></strong>
+          </div>
+          <div>
+            <span class="metric-label">Selected score</span>
+            <strong id="selected-score"></strong>
+          </div>
+        </div>
+        <div class="team-block align-right">
+          <p id="team-b-name" class="team-name"></p>
+          <p id="team-b-meta" class="team-meta"></p>
+        </div>
+      </section>
+
+      <section class="history" aria-label="Recent head-to-head results">
+        <div class="section-heading">
+          <h2>Recent World Cup Meetings</h2>
+          <p id="history-pair"></p>
+        </div>
+        <ol id="history-list" class="history-list"></ol>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
