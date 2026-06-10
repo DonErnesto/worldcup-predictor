@@ -84,16 +84,33 @@ class ScorePredictor:
         return self
 
     def predict(self, rows: pd.DataFrame) -> pd.DataFrame:
+        rates = self.predict_rates(rows)
+        return pd.DataFrame(
+            {
+                "pred_goals_a": np.rint(np.clip(rates["expected_goals_a"], 0, None)).astype(int),
+                "pred_goals_b": np.rint(np.clip(rates["expected_goals_b"], 0, None)).astype(int),
+            },
+            index=rows.index,
+        )
+
+    def predict_rates(self, rows: pd.DataFrame) -> pd.DataFrame:
         x_test = rows[self.feature_columns].copy()
         pred_a = self.goals_a_model.predict(x_test)
         pred_b = self.goals_b_model.predict(x_test)
         return pd.DataFrame(
             {
-                "pred_goals_a": np.rint(np.clip(pred_a, 0, None)).astype(int),
-                "pred_goals_b": np.rint(np.clip(pred_b, 0, None)).astype(int),
+                "expected_goals_a": np.clip(pred_a, 0, None),
+                "expected_goals_b": np.clip(pred_b, 0, None),
             },
             index=rows.index,
         )
+
+    def explain_row(self, row: pd.Series, top_n: int = 8) -> dict[str, pd.DataFrame]:
+        x_row = row.to_frame().T[self.feature_columns]
+        return {
+            "goals_a": _explain_goal_pipeline(self.goals_a_model, x_row, top_n),
+            "goals_b": _explain_goal_pipeline(self.goals_b_model, x_row, top_n),
+        }
 
 
 class PhaseSplitScorePredictor:
@@ -126,6 +143,24 @@ class PhaseSplitScorePredictor:
         if knockout_mask.any():
             predictions.loc[knockout_mask, ["pred_goals_a", "pred_goals_b"]] = self.knockout_predictor.predict(rows[knockout_mask])
         return predictions.astype(int)
+
+    def predict_rates(self, rows: pd.DataFrame) -> pd.DataFrame:
+        rates = pd.DataFrame(index=rows.index, columns=["expected_goals_a", "expected_goals_b"], dtype=float)
+        group_mask = ~rows["is_knockout"].astype(bool)
+        knockout_mask = rows["is_knockout"].astype(bool)
+        if group_mask.any():
+            rates.loc[group_mask, ["expected_goals_a", "expected_goals_b"]] = self.group_predictor.predict_rates(
+                rows[group_mask]
+            )
+        if knockout_mask.any():
+            rates.loc[knockout_mask, ["expected_goals_a", "expected_goals_b"]] = self.knockout_predictor.predict_rates(
+                rows[knockout_mask]
+            )
+        return rates.astype(float)
+
+    def explain_row(self, row: pd.Series, top_n: int = 8) -> dict[str, pd.DataFrame]:
+        predictor = self.knockout_predictor if bool(row["is_knockout"]) else self.group_predictor
+        return predictor.explain_row(row, top_n=top_n)
 
 
 class ReducedPhaseSplitScorePredictor(PhaseSplitScorePredictor):
@@ -175,3 +210,30 @@ class MostCommonScorePredictor:
             raise ValueError("Cannot derive most common score from empty rows")
         goals_a, goals_b = counts.index[0]
         return int(goals_a), int(goals_b)
+
+
+def _explain_goal_pipeline(pipeline: Pipeline, x_row: pd.DataFrame, top_n: int) -> pd.DataFrame:
+    preprocessor = pipeline.named_steps["preprocessor"]
+    model = pipeline.named_steps["model"]
+    transformed = preprocessor.transform(x_row)
+    if hasattr(transformed, "toarray"):
+        transformed = transformed.toarray()
+    feature_names = [_clean_feature_name(name) for name in preprocessor.get_feature_names_out()]
+    contributions = transformed[0] * model.coef_
+    frame = pd.DataFrame(
+        {
+            "feature": feature_names,
+            "transformed_value": transformed[0],
+            "contribution_log_rate": contributions,
+        }
+    )
+    frame = frame[frame["contribution_log_rate"].abs() > 1e-12].copy()
+    frame = frame.reindex(frame["contribution_log_rate"].abs().sort_values(ascending=False).index)
+    return frame.head(top_n).reset_index(drop=True)
+
+
+def _clean_feature_name(name: str) -> str:
+    for prefix in ("numeric__", "categorical__"):
+        if name.startswith(prefix):
+            return name.removeprefix(prefix)
+    return name

@@ -31,6 +31,23 @@ def test_phase_split_predictor_trains_group_and_knockout_models():
     assert (predictions >= 0).all().all()
 
 
+def test_phase_split_predictor_exposes_rates_and_explanations():
+    matches = load_matches()
+    train, test = split_train_test(matches, split=BacktestSplit((2006, 2010, 2014, 2018), 2022))
+    predictor = PhaseSplitScorePredictor().fit(train)
+    sample = test.head(3)
+
+    rates = predictor.predict_rates(sample)
+    assert list(rates.columns) == ["expected_goals_a", "expected_goals_b"]
+    assert len(rates) == 3
+    assert (rates >= 0).all().all()
+
+    explanation = predictor.explain_row(sample.iloc[0], top_n=5)
+    assert set(explanation) == {"goals_a", "goals_b"}
+    assert len(explanation["goals_a"]) <= 5
+    assert {"feature", "transformed_value", "contribution_log_rate"}.issubset(explanation["goals_a"].columns)
+
+
 def test_reduced_phase_split_predictor_uses_slim_feature_set():
     assert REDUCED_FEATURE_COLUMNS == [
         "is_knockout",

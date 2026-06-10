@@ -35,6 +35,11 @@ def run_backtest(
         train, test = split_train_test(matches, split)
         predictor = PREDICTORS[predictor_name]().fit(train)
         predicted_scores = predictor.predict(test)
+        if hasattr(predictor, "predict_rates"):
+            predicted_scores = pd.concat(
+                [predicted_scores.reset_index(drop=True), predictor.predict_rates(test).reset_index(drop=True)],
+                axis=1,
+            )
         frame = test[
             [
                 "match_id",

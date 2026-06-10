@@ -1,257 +1,257 @@
-match_id,test_year,match_date,stage,is_knockout,country_a,country_b,actual_goals_a,actual_goals_b,train_years,predictor,pred_goals_a,pred_goals_b,actual_outcome,pred_outcome,score_points,exact_score,outcome_correct,actual_draw,draw_correct
-709,2010,2010-06-11,group,False,South Africa,Mexico,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,DRAW,B_WIN,0,False,False,True,False
-710,2010,2010-06-11,group,False,Uruguay,France,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-711,2010,2010-06-16,group,False,South Africa,Uruguay,0,3,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,2,False,True,False,False
-712,2010,2010-06-17,group,False,France,Mexico,0,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-713,2010,2010-06-22,group,False,Mexico,Uruguay,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-714,2010,2010-06-22,group,False,France,South Africa,1,2,"1994,1998,2002,2006",reduced_phase_split_poisson,3,1,B_WIN,A_WIN,0,False,False,False,False
-715,2010,2010-06-12,group,False,South Korea,Greece,2,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,A_WIN,B_WIN,0,False,False,False,False
-716,2010,2010-06-12,group,False,Argentina,Nigeria,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-717,2010,2010-06-17,group,False,Argentina,South Korea,4,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-718,2010,2010-06-17,group,False,Greece,Nigeria,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-719,2010,2010-06-22,group,False,Nigeria,South Korea,2,2,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-720,2010,2010-06-22,group,False,Greece,Argentina,0,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-721,2010,2010-06-12,group,False,England,USA,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-722,2010,2010-06-13,group,False,Algeria,Slovenia,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-723,2010,2010-06-18,group,False,Slovenia,USA,2,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-724,2010,2010-06-18,group,False,England,Algeria,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-725,2010,2010-06-23,group,False,USA,Algeria,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-726,2010,2010-06-23,group,False,Slovenia,England,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-727,2010,2010-06-13,group,False,Serbia,Ghana,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-728,2010,2010-06-13,group,False,Germany,Australia,4,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-729,2010,2010-06-18,group,False,Germany,Serbia,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-730,2010,2010-06-19,group,False,Ghana,Australia,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-731,2010,2010-06-23,group,False,Australia,Serbia,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-732,2010,2010-06-23,group,False,Ghana,Germany,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-733,2010,2010-06-14,group,False,Netherlands,Denmark,2,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-734,2010,2010-06-14,group,False,Japan,Cameroon,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-735,2010,2010-06-19,group,False,Netherlands,Japan,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-736,2010,2010-06-19,group,False,Cameroon,Denmark,1,2,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-737,2010,2010-06-24,group,False,Denmark,Japan,1,3,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-738,2010,2010-06-24,group,False,Cameroon,Netherlands,1,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-739,2010,2010-06-14,group,False,Italy,Paraguay,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-740,2010,2010-06-15,group,False,New Zealand,Slovakia,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,DRAW,B_WIN,0,False,False,True,False
-741,2010,2010-06-20,group,False,Slovakia,Paraguay,0,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-742,2010,2010-06-20,group,False,Italy,New Zealand,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,3,1,DRAW,A_WIN,0,False,False,True,False
-743,2010,2010-06-24,group,False,Slovakia,Italy,3,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-744,2010,2010-06-24,group,False,Paraguay,New Zealand,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-745,2010,2010-06-15,group,False,Côte d'Ivoire,Portugal,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-746,2010,2010-06-15,group,False,Brazil,North Korea,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,3,0,A_WIN,A_WIN,2,False,True,False,False
-747,2010,2010-06-20,group,False,Brazil,Côte d'Ivoire,3,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-748,2010,2010-06-21,group,False,Portugal,North Korea,7,0,"1994,1998,2002,2006",reduced_phase_split_poisson,3,0,A_WIN,A_WIN,2,False,True,False,False
-749,2010,2010-06-25,group,False,Portugal,Brazil,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-750,2010,2010-06-25,group,False,North Korea,Côte d'Ivoire,0,3,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,2,False,True,False,False
-751,2010,2010-06-16,group,False,Honduras,Chile,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-752,2010,2010-06-16,group,False,Spain,Switzerland,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-753,2010,2010-06-21,group,False,Chile,Switzerland,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-754,2010,2010-06-21,group,False,Spain,Honduras,2,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-755,2010,2010-06-25,group,False,Chile,Spain,1,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-756,2010,2010-06-25,group,False,Switzerland,Honduras,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-757,2010,2010-06-26,round_of_16,True,Uruguay,South Korea,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-758,2010,2010-06-26,round_of_16,True,USA,Ghana,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-759,2010,2010-06-27,round_of_16,True,Germany,England,4,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-760,2010,2010-06-27,round_of_16,True,Argentina,Mexico,3,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-761,2010,2010-06-28,round_of_16,True,Netherlands,Slovakia,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-762,2010,2010-06-28,round_of_16,True,Brazil,Chile,3,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-763,2010,2010-06-29,round_of_16,True,Paraguay,Japan,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-764,2010,2010-06-29,round_of_16,True,Spain,Portugal,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-765,2010,2010-07-02,quarter_final,True,Netherlands,Brazil,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-766,2010,2010-07-02,quarter_final,True,Uruguay,Ghana,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-767,2010,2010-07-03,quarter_final,True,Argentina,Germany,0,4,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-768,2010,2010-07-03,quarter_final,True,Paraguay,Spain,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,3,False,True,False,False
-769,2010,2010-07-06,semi_final,True,Uruguay,Netherlands,2,3,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-770,2010,2010-07-07,semi_final,True,Germany,Spain,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-771,2010,2010-07-10,third_place,True,Uruguay,Germany,2,3,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-772,2010,2010-07-11,final,True,Netherlands,Spain,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-773,2014,2014-06-12,group,False,Brazil,Croatia,3,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-774,2014,2014-06-13,group,False,Mexico,Cameroon,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-775,2014,2014-06-17,group,False,Brazil,Mexico,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-776,2014,2014-06-18,group,False,Cameroon,Croatia,0,4,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-777,2014,2014-06-23,group,False,Cameroon,Brazil,1,4,"1998,2002,2006,2010",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,2,False,True,False,False
-778,2014,2014-06-23,group,False,Croatia,Mexico,1,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-779,2014,2014-06-13,group,False,Spain,Netherlands,1,5,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-780,2014,2014-06-13,group,False,Chile,Australia,3,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-781,2014,2014-06-18,group,False,Australia,Netherlands,2,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,3,False,True,False,False
-782,2014,2014-06-18,group,False,Spain,Chile,0,2,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-783,2014,2014-06-23,group,False,Australia,Spain,0,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,2,False,True,False,False
-784,2014,2014-06-23,group,False,Netherlands,Chile,2,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-785,2014,2014-06-14,group,False,Colombia,Greece,3,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-786,2014,2014-06-14,group,False,Côte d'Ivoire,Japan,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,4,True,True,False,False
-787,2014,2014-06-19,group,False,Colombia,Côte d'Ivoire,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-788,2014,2014-06-19,group,False,Japan,Greece,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-789,2014,2014-06-24,group,False,Japan,Colombia,1,4,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-790,2014,2014-06-24,group,False,Greece,Côte d'Ivoire,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-791,2014,2014-06-14,group,False,Uruguay,Costa Rica,1,3,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-792,2014,2014-06-14,group,False,England,Italy,1,2,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-793,2014,2014-06-19,group,False,Uruguay,England,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-794,2014,2014-06-20,group,False,Italy,Costa Rica,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-795,2014,2014-06-24,group,False,Italy,Uruguay,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-796,2014,2014-06-24,group,False,Costa Rica,England,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-797,2014,2014-06-15,group,False,Switzerland,Ecuador,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,4,True,True,False,False
-798,2014,2014-06-15,group,False,France,Honduras,3,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-799,2014,2014-06-20,group,False,Switzerland,France,2,5,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-800,2014,2014-06-20,group,False,Honduras,Ecuador,1,2,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-801,2014,2014-06-25,group,False,Honduras,Switzerland,0,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-802,2014,2014-06-25,group,False,Ecuador,France,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-803,2014,2014-06-15,group,False,Argentina,Bosnia-Herzegovina,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,4,True,True,False,False
-804,2014,2014-06-16,group,False,Iran,Nigeria,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-805,2014,2014-06-21,group,False,Argentina,Iran,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-806,2014,2014-06-21,group,False,Nigeria,Bosnia-Herzegovina,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-807,2014,2014-06-25,group,False,Nigeria,Argentina,2,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-808,2014,2014-06-25,group,False,Bosnia-Herzegovina,Iran,3,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-809,2014,2014-06-16,group,False,Germany,Portugal,4,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-810,2014,2014-06-16,group,False,Ghana,USA,1,2,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-811,2014,2014-06-21,group,False,Germany,Ghana,2,2,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-812,2014,2014-06-22,group,False,USA,Portugal,2,2,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-813,2014,2014-06-26,group,False,USA,Germany,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-814,2014,2014-06-26,group,False,Portugal,Ghana,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,4,True,True,False,False
-815,2014,2014-06-17,group,False,Belgium,Algeria,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-816,2014,2014-06-17,group,False,Russia,South Korea,1,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-817,2014,2014-06-22,group,False,Belgium,Russia,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-818,2014,2014-06-22,group,False,South Korea,Algeria,2,4,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-819,2014,2014-06-26,group,False,South Korea,Belgium,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-820,2014,2014-06-26,group,False,Algeria,Russia,1,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-821,2014,2014-06-28,round_of_16,True,Brazil,Chile,1,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-822,2014,2014-06-28,round_of_16,True,Colombia,Uruguay,2,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-823,2014,2014-06-29,round_of_16,True,Netherlands,Mexico,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-824,2014,2014-06-29,round_of_16,True,Costa Rica,Greece,1,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-825,2014,2014-06-30,round_of_16,True,France,Nigeria,2,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-826,2014,2014-06-30,round_of_16,True,Germany,Algeria,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-827,2014,2014-07-01,round_of_16,True,Argentina,Switzerland,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-828,2014,2014-07-01,round_of_16,True,Belgium,USA,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-829,2014,2014-07-04,quarter_final,True,France,Germany,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-830,2014,2014-07-04,quarter_final,True,Brazil,Colombia,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-831,2014,2014-07-05,quarter_final,True,Argentina,Belgium,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-832,2014,2014-07-05,quarter_final,True,Netherlands,Costa Rica,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-833,2014,2014-07-08,semi_final,True,Brazil,Germany,1,7,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-834,2014,2014-07-09,semi_final,True,Netherlands,Argentina,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-835,2014,2014-07-12,third_place,True,Brazil,Netherlands,0,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-836,2014,2014-07-13,final,True,Germany,Argentina,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-837,2018,2018-06-14,group,False,Russia,Saudi Arabia,5,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-838,2018,2018-06-15,group,False,Egypt,Uruguay,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,3,False,True,False,False
-839,2018,2018-06-19,group,False,Russia,Egypt,3,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-840,2018,2018-06-20,group,False,Uruguay,Saudi Arabia,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-841,2018,2018-06-25,group,False,Uruguay,Russia,3,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-842,2018,2018-06-25,group,False,Saudi Arabia,Egypt,2,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-843,2018,2018-06-15,group,False,Morocco,Iran,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-844,2018,2018-06-15,group,False,Portugal,Spain,3,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-845,2018,2018-06-20,group,False,Portugal,Morocco,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-846,2018,2018-06-20,group,False,Iran,Spain,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-847,2018,2018-06-25,group,False,Iran,Portugal,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,DRAW,B_WIN,0,False,False,True,False
-848,2018,2018-06-25,group,False,Spain,Morocco,2,2,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-849,2018,2018-06-16,group,False,France,Australia,2,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,4,True,True,False,False
-850,2018,2018-06-16,group,False,Peru,Denmark,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-851,2018,2018-06-21,group,False,Denmark,Australia,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-852,2018,2018-06-21,group,False,France,Peru,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-853,2018,2018-06-26,group,False,Denmark,France,0,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-854,2018,2018-06-26,group,False,Australia,Peru,0,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,2,False,True,False,False
-855,2018,2018-06-16,group,False,Argentina,Iceland,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-856,2018,2018-06-16,group,False,Croatia,Nigeria,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-857,2018,2018-06-21,group,False,Argentina,Croatia,0,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-858,2018,2018-06-22,group,False,Nigeria,Iceland,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-859,2018,2018-06-26,group,False,Nigeria,Argentina,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,4,True,True,False,False
-860,2018,2018-06-26,group,False,Iceland,Croatia,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-861,2018,2018-06-17,group,False,Costa Rica,Serbia,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-862,2018,2018-06-17,group,False,Brazil,Switzerland,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-863,2018,2018-06-22,group,False,Brazil,Costa Rica,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-864,2018,2018-06-22,group,False,Serbia,Switzerland,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-865,2018,2018-06-27,group,False,Serbia,Brazil,0,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,2,False,True,False,False
-866,2018,2018-06-27,group,False,Switzerland,Costa Rica,2,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-867,2018,2018-06-17,group,False,Germany,Mexico,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-868,2018,2018-06-18,group,False,Sweden,South Korea,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-869,2018,2018-06-23,group,False,South Korea,Mexico,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,4,True,True,False,False
-870,2018,2018-06-23,group,False,Germany,Sweden,2,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,4,True,True,False,False
-871,2018,2018-06-27,group,False,South Korea,Germany,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,A_WIN,B_WIN,0,False,False,False,False
-872,2018,2018-06-27,group,False,Mexico,Sweden,0,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-873,2018,2018-06-18,group,False,Belgium,Panama,3,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-874,2018,2018-06-18,group,False,Tunisia,England,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-875,2018,2018-06-23,group,False,Belgium,Tunisia,5,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-876,2018,2018-06-24,group,False,England,Panama,6,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-877,2018,2018-06-28,group,False,England,Belgium,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-878,2018,2018-06-28,group,False,Panama,Tunisia,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,4,True,True,False,False
-879,2018,2018-06-19,group,False,Colombia,Japan,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-880,2018,2018-06-19,group,False,Poland,Senegal,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-881,2018,2018-06-24,group,False,Japan,Senegal,2,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,DRAW,B_WIN,0,False,False,True,False
-882,2018,2018-06-24,group,False,Poland,Colombia,0,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-883,2018,2018-06-28,group,False,Japan,Poland,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,3,False,True,False,False
-884,2018,2018-06-28,group,False,Senegal,Colombia,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-885,2018,2018-06-30,round_of_16,True,France,Argentina,4,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-886,2018,2018-06-30,round_of_16,True,Uruguay,Portugal,2,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-887,2018,2018-07-01,round_of_16,True,Spain,Russia,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,0,DRAW,A_WIN,0,False,False,True,False
-888,2018,2018-07-01,round_of_16,True,Croatia,Denmark,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-889,2018,2018-07-02,round_of_16,True,Brazil,Mexico,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-890,2018,2018-07-02,round_of_16,True,Belgium,Japan,3,2,"2002,2006,2010,2014",reduced_phase_split_poisson,2,0,A_WIN,A_WIN,2,False,True,False,False
-891,2018,2018-07-03,round_of_16,True,Sweden,Switzerland,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-892,2018,2018-07-03,round_of_16,True,Colombia,England,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-893,2018,2018-07-06,quarter_final,True,Uruguay,France,0,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-894,2018,2018-07-06,quarter_final,True,Brazil,Belgium,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-895,2018,2018-07-07,quarter_final,True,Sweden,England,0,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-896,2018,2018-07-07,quarter_final,True,Russia,Croatia,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-897,2018,2018-07-10,semi_final,True,France,Belgium,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-898,2018,2018-07-11,semi_final,True,Croatia,England,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-899,2018,2018-07-14,third_place,True,Belgium,England,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-900,2018,2018-07-15,final,True,France,Croatia,4,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-901,2022,2022-11-20,group,False,Qatar,Ecuador,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-902,2022,2022-11-21,group,False,Senegal,Netherlands,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-903,2022,2022-11-25,group,False,Qatar,Senegal,1,3,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-904,2022,2022-11-25,group,False,Netherlands,Ecuador,1,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,DRAW,A_WIN,0,False,False,True,False
-905,2022,2022-11-29,group,False,Ecuador,Senegal,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-906,2022,2022-11-29,group,False,Netherlands,Qatar,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-907,2022,2022-11-21,group,False,England,Iran,6,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-908,2022,2022-11-21,group,False,USA,Wales,1,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-909,2022,2022-11-25,group,False,Wales,Iran,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-910,2022,2022-11-25,group,False,England,USA,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-911,2022,2022-11-29,group,False,Wales,England,0,3,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-912,2022,2022-11-29,group,False,Iran,USA,0,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-913,2022,2022-11-22,group,False,Argentina,Saudi Arabia,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-914,2022,2022-11-22,group,False,Mexico,Poland,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-915,2022,2022-11-26,group,False,Poland,Saudi Arabia,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-916,2022,2022-11-26,group,False,Argentina,Mexico,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-917,2022,2022-11-30,group,False,Poland,Argentina,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-918,2022,2022-11-30,group,False,Saudi Arabia,Mexico,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,4,True,True,False,False
-919,2022,2022-11-22,group,False,Denmark,Tunisia,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-920,2022,2022-11-22,group,False,France,Australia,4,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-921,2022,2022-11-26,group,False,Tunisia,Australia,0,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-922,2022,2022-11-26,group,False,France,Denmark,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-923,2022,2022-11-30,group,False,Australia,Denmark,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-924,2022,2022-11-30,group,False,Tunisia,France,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,2,A_WIN,B_WIN,0,False,False,False,False
-925,2022,2022-11-23,group,False,Germany,Japan,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-926,2022,2022-11-23,group,False,Spain,Costa Rica,7,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-927,2022,2022-11-27,group,False,Japan,Costa Rica,0,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-928,2022,2022-11-27,group,False,Spain,Germany,1,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-929,2022,2022-12-01,group,False,Japan,Spain,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-930,2022,2022-12-01,group,False,Costa Rica,Germany,2,4,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-931,2022,2022-11-23,group,False,Morocco,Croatia,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-932,2022,2022-11-23,group,False,Belgium,Canada,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-933,2022,2022-11-27,group,False,Belgium,Morocco,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-934,2022,2022-11-27,group,False,Croatia,Canada,4,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-935,2022,2022-12-01,group,False,Croatia,Belgium,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-936,2022,2022-12-01,group,False,Canada,Morocco,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-937,2022,2022-11-24,group,False,Switzerland,Cameroon,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-938,2022,2022-11-24,group,False,Brazil,Serbia,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-939,2022,2022-11-28,group,False,Cameroon,Serbia,3,3,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-940,2022,2022-11-28,group,False,Brazil,Switzerland,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-941,2022,2022-12-02,group,False,Serbia,Switzerland,2,3,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-942,2022,2022-12-02,group,False,Cameroon,Brazil,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,2,A_WIN,B_WIN,0,False,False,False,False
-943,2022,2022-11-24,group,False,Uruguay,South Korea,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-944,2022,2022-11-24,group,False,Portugal,Ghana,3,2,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,3,False,True,False,False
-945,2022,2022-11-28,group,False,South Korea,Ghana,2,3,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,B_WIN,A_WIN,0,False,False,False,False
-946,2022,2022-11-28,group,False,Portugal,Uruguay,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-947,2022,2022-12-02,group,False,Ghana,Uruguay,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,2,B_WIN,B_WIN,2,False,True,False,False
-948,2022,2022-12-02,group,False,South Korea,Portugal,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-949,2022,2022-12-03,round_of_16,True,Netherlands,USA,3,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-950,2022,2022-12-03,round_of_16,True,Argentina,Australia,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,4,True,True,False,False
-951,2022,2022-12-04,round_of_16,True,France,Poland,3,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-952,2022,2022-12-04,round_of_16,True,England,Senegal,3,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-953,2022,2022-12-05,round_of_16,True,Japan,Croatia,1,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,4,True,True,True,True
-954,2022,2022-12-05,round_of_16,True,Brazil,South Korea,4,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,A_WIN,A_WIN,2,False,True,False,False
-955,2022,2022-12-06,round_of_16,True,Morocco,Spain,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-956,2022,2022-12-06,round_of_16,True,Portugal,Switzerland,6,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-957,2022,2022-12-09,quarter_final,True,Croatia,Brazil,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-958,2022,2022-12-09,quarter_final,True,Netherlands,Argentina,2,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
-959,2022,2022-12-10,quarter_final,True,Morocco,Portugal,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-960,2022,2022-12-10,quarter_final,True,England,France,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,B_WIN,DRAW,0,False,False,False,False
-961,2022,2022-12-13,semi_final,True,Argentina,Croatia,3,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-962,2022,2022-12-14,semi_final,True,France,Morocco,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-963,2022,2022-12-17,third_place,True,Croatia,Morocco,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,A_WIN,DRAW,0,False,False,False,False
-964,2022,2022-12-18,final,True,Argentina,France,2,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,DRAW,DRAW,2,False,True,True,True
+match_id,test_year,match_date,stage,is_knockout,country_a,country_b,actual_goals_a,actual_goals_b,train_years,predictor,pred_goals_a,pred_goals_b,expected_goals_a,expected_goals_b,actual_outcome,pred_outcome,score_points,exact_score,outcome_correct,actual_draw,draw_correct
+709,2010,2010-06-11,group,False,South Africa,Mexico,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,0.808768429103404,2.0392639642037924,DRAW,B_WIN,0,False,False,True,False
+710,2010,2010-06-11,group,False,Uruguay,France,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.329592778698014,1.1988012552494418,DRAW,DRAW,2,False,True,True,True
+711,2010,2010-06-16,group,False,South Africa,Uruguay,0,3,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,0.8024165700081062,2.0552149517653278,B_WIN,B_WIN,2,False,True,False,False
+712,2010,2010-06-17,group,False,France,Mexico,0,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.4990596710697888,1.0291776514217545,B_WIN,DRAW,0,False,False,False,False
+713,2010,2010-06-22,group,False,Mexico,Uruguay,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.399822888599701,1.1302519734068825,B_WIN,DRAW,0,False,False,False,False
+714,2010,2010-06-22,group,False,France,South Africa,1,2,"1994,1998,2002,2006",reduced_phase_split_poisson,3,1,2.6492971257052838,0.5293943854073613,B_WIN,A_WIN,0,False,False,False,False
+715,2010,2010-06-12,group,False,South Korea,Greece,2,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,1.0655954046340939,1.5079774541663098,A_WIN,B_WIN,0,False,False,False,False
+716,2010,2010-06-12,group,False,Argentina,Nigeria,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.625473100408856,0.9704126670910895,A_WIN,A_WIN,3,False,True,False,False
+717,2010,2010-06-17,group,False,Argentina,South Korea,4,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,2.068420267513025,0.7411361231729766,A_WIN,A_WIN,2,False,True,False,False
+718,2010,2010-06-17,group,False,Greece,Nigeria,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.4823003287099457,1.0680618148393037,A_WIN,DRAW,0,False,False,False,False
+719,2010,2010-06-22,group,False,Nigeria,South Korea,2,2,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.7874119033650904,0.8485100782376737,DRAW,A_WIN,0,False,False,True,False
+720,2010,2010-06-22,group,False,Greece,Argentina,0,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.3133347369355277,1.2063379853662186,B_WIN,DRAW,0,False,False,False,False
+721,2010,2010-06-12,group,False,England,USA,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.50525679141087,1.033422176060776,DRAW,A_WIN,0,False,False,True,False
+722,2010,2010-06-13,group,False,Algeria,Slovenia,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.3623844842051305,1.1518255163021751,B_WIN,DRAW,0,False,False,False,False
+723,2010,2010-06-18,group,False,Slovenia,USA,2,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.3055100195530869,1.2319736404298938,DRAW,DRAW,2,False,True,True,True
+724,2010,2010-06-18,group,False,England,Algeria,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.697640420679977,0.8938809107583687,DRAW,A_WIN,0,False,False,True,False
+725,2010,2010-06-23,group,False,USA,Algeria,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.5965567441957107,0.9713497545943734,A_WIN,A_WIN,3,False,True,False,False
+726,2010,2010-06-23,group,False,Slovenia,England,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.2042756781184751,1.327244037335042,B_WIN,DRAW,0,False,False,False,False
+727,2010,2010-06-13,group,False,Serbia,Ghana,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.6162422540677563,0.9486862267951823,B_WIN,A_WIN,0,False,False,False,False
+728,2010,2010-06-13,group,False,Germany,Australia,4,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.6641117721035468,0.9784005880543936,A_WIN,A_WIN,2,False,True,False,False
+729,2010,2010-06-18,group,False,Germany,Serbia,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.5924321321612454,1.0265418997374616,B_WIN,A_WIN,0,False,False,False,False
+730,2010,2010-06-19,group,False,Ghana,Australia,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.2860373601208221,1.2386119356221053,DRAW,DRAW,4,True,True,True,True
+731,2010,2010-06-23,group,False,Australia,Serbia,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.3693421694923464,1.1695753395088713,A_WIN,DRAW,0,False,False,False,False
+732,2010,2010-06-23,group,False,Ghana,Germany,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.1246231333106331,1.4411222994633837,B_WIN,DRAW,0,False,False,False,False
+733,2010,2010-06-14,group,False,Netherlands,Denmark,2,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.8570093953864033,0.8165149441505805,A_WIN,A_WIN,2,False,True,False,False
+734,2010,2010-06-14,group,False,Japan,Cameroon,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.1452999262490575,1.4117427756222687,A_WIN,DRAW,0,False,False,False,False
+735,2010,2010-06-19,group,False,Netherlands,Japan,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,2.0205905943219498,0.7420528538186131,A_WIN,A_WIN,3,False,True,False,False
+736,2010,2010-06-19,group,False,Cameroon,Denmark,1,2,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.6066087555493647,0.945905391406588,B_WIN,A_WIN,0,False,False,False,False
+737,2010,2010-06-24,group,False,Denmark,Japan,1,3,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.5251684632080147,0.9922181800513662,B_WIN,A_WIN,0,False,False,False,False
+738,2010,2010-06-24,group,False,Cameroon,Netherlands,1,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.226817293405611,1.2883634061585443,B_WIN,DRAW,0,False,False,False,False
+739,2010,2010-06-14,group,False,Italy,Paraguay,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.7407754186675581,0.8652271927439418,DRAW,A_WIN,0,False,False,True,False
+740,2010,2010-06-15,group,False,New Zealand,Slovakia,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,0.9717998322912755,1.624773142227082,DRAW,B_WIN,0,False,False,True,False
+741,2010,2010-06-20,group,False,Slovakia,Paraguay,0,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.363789170915632,1.1336676097748524,B_WIN,DRAW,0,False,False,False,False
+742,2010,2010-06-20,group,False,Italy,New Zealand,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,3,1,2.6186615413135326,0.540402933837898,DRAW,A_WIN,0,False,False,True,False
+743,2010,2010-06-24,group,False,Slovakia,Italy,3,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.0939030918526695,1.473535970599867,A_WIN,DRAW,0,False,False,False,False
+744,2010,2010-06-24,group,False,Paraguay,New Zealand,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,2.095886594984804,0.6859699070601466,DRAW,A_WIN,0,False,False,True,False
+745,2010,2010-06-15,group,False,Côte d'Ivoire,Portugal,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.1674411789002173,1.4140328818472598,DRAW,DRAW,2,False,True,True,True
+746,2010,2010-06-15,group,False,Brazil,North Korea,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,3,0,3.477417066087657,0.3946179108663526,A_WIN,A_WIN,2,False,True,False,False
+747,2010,2010-06-20,group,False,Brazil,Côte d'Ivoire,3,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.8000600819008423,0.8606511730531304,A_WIN,A_WIN,2,False,True,False,False
+748,2010,2010-06-21,group,False,Portugal,North Korea,7,0,"1994,1998,2002,2006",reduced_phase_split_poisson,3,0,3.37870633563715,0.40659225279338085,A_WIN,A_WIN,2,False,True,False,False
+749,2010,2010-06-25,group,False,Portugal,Brazil,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.4053243398363915,1.1870380009061543,DRAW,DRAW,2,False,True,True,True
+750,2010,2010-06-25,group,False,North Korea,Côte d'Ivoire,0,3,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,0.7294279785322779,2.2190316172119613,B_WIN,B_WIN,2,False,True,False,False
+751,2010,2010-06-16,group,False,Honduras,Chile,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.1971048470417152,1.341257761267665,B_WIN,DRAW,0,False,False,False,False
+752,2010,2010-06-16,group,False,Spain,Switzerland,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.7507748138936272,0.9338152127671797,B_WIN,A_WIN,0,False,False,False,False
+753,2010,2010-06-21,group,False,Chile,Switzerland,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.446342459989838,1.0676576074687574,A_WIN,DRAW,0,False,False,False,False
+754,2010,2010-06-21,group,False,Spain,Honduras,2,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,2.0087336448498707,0.8020478156275053,A_WIN,A_WIN,2,False,True,False,False
+755,2010,2010-06-25,group,False,Chile,Spain,1,2,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.2179330095696264,1.3306600578319394,B_WIN,DRAW,0,False,False,False,False
+756,2010,2010-06-25,group,False,Switzerland,Honduras,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,2,1,1.584114439464553,0.9644931674739718,DRAW,A_WIN,0,False,False,True,False
+757,2010,2010-06-26,round_of_16,True,Uruguay,South Korea,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.3035430630520373,0.6075471871625878,A_WIN,DRAW,0,False,False,False,False
+758,2010,2010-06-26,round_of_16,True,USA,Ghana,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.3318228744778315,0.7646979677698991,DRAW,DRAW,4,True,True,True,True
+759,2010,2010-06-27,round_of_16,True,Germany,England,4,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.2949034956158447,1.0518428031937201,A_WIN,DRAW,0,False,False,False,False
+760,2010,2010-06-27,round_of_16,True,Argentina,Mexico,3,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.3326776849322877,0.9025686268762586,A_WIN,DRAW,0,False,False,False,False
+761,2010,2010-06-28,round_of_16,True,Netherlands,Slovakia,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.4673908933556135,0.6569729457679213,A_WIN,DRAW,0,False,False,False,False
+762,2010,2010-06-28,round_of_16,True,Brazil,Chile,3,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.4667769901396581,0.8126465186137395,A_WIN,DRAW,0,False,False,False,False
+763,2010,2010-06-29,round_of_16,True,Paraguay,Japan,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.1967240748404449,0.7874063228118869,DRAW,DRAW,2,False,True,True,True
+764,2010,2010-06-29,round_of_16,True,Spain,Portugal,1,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.3241188642803225,1.035116297874384,A_WIN,DRAW,0,False,False,False,False
+765,2010,2010-07-02,quarter_final,True,Netherlands,Brazil,2,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.2442397505946534,1.1790798919494128,A_WIN,DRAW,0,False,False,False,False
+766,2010,2010-07-02,quarter_final,True,Uruguay,Ghana,1,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.2415542082697466,0.7832505807485965,DRAW,DRAW,4,True,True,True,True
+767,2010,2010-07-03,quarter_final,True,Argentina,Germany,0,4,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.2353029446576431,1.0709057289583872,B_WIN,DRAW,0,False,False,False,False
+768,2010,2010-07-03,quarter_final,True,Paraguay,Spain,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,2,1.02669682699631,1.5865300249721372,B_WIN,B_WIN,3,False,True,False,False
+769,2010,2010-07-06,semi_final,True,Uruguay,Netherlands,2,3,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.0818967134211415,1.2232270820175366,B_WIN,DRAW,0,False,False,False,False
+770,2010,2010-07-07,semi_final,True,Germany,Spain,0,1,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.1868557073224664,1.0986294761865318,B_WIN,DRAW,0,False,False,False,False
+771,2010,2010-07-10,third_place,True,Uruguay,Germany,2,3,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.2625730884242499,1.2460777610577887,B_WIN,DRAW,0,False,False,False,False
+772,2010,2010-07-11,final,True,Netherlands,Spain,0,0,"1994,1998,2002,2006",reduced_phase_split_poisson,1,1,1.242261994258187,1.154213325982906,DRAW,DRAW,2,False,True,True,True
+773,2014,2014-06-12,group,False,Brazil,Croatia,3,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.4889650531032468,0.9236434993567728,A_WIN,DRAW,0,False,False,False,False
+774,2014,2014-06-13,group,False,Mexico,Cameroon,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.675394906170525,0.8595607323548973,A_WIN,A_WIN,3,False,True,False,False
+775,2014,2014-06-17,group,False,Brazil,Mexico,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.5120835379629196,0.9503601382318297,DRAW,A_WIN,0,False,False,True,False
+776,2014,2014-06-18,group,False,Cameroon,Croatia,0,4,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.0129501428185281,1.3593183922620422,B_WIN,DRAW,0,False,False,False,False
+777,2014,2014-06-23,group,False,Cameroon,Brazil,1,4,"1998,2002,2006,2010",reduced_phase_split_poisson,1,2,0.9114721357629403,1.5584631681337304,B_WIN,B_WIN,2,False,True,False,False
+778,2014,2014-06-23,group,False,Croatia,Mexico,1,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.307898450746112,1.0943712633312814,B_WIN,DRAW,0,False,False,False,False
+779,2014,2014-06-13,group,False,Spain,Netherlands,1,5,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.5242904111578324,0.9456992535572383,B_WIN,A_WIN,0,False,False,False,False
+780,2014,2014-06-13,group,False,Chile,Australia,3,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.9091085321625536,0.7804653810906007,A_WIN,A_WIN,2,False,True,False,False
+781,2014,2014-06-18,group,False,Australia,Netherlands,2,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,2,0.9501209880350961,1.5063965865232776,B_WIN,B_WIN,3,False,True,False,False
+782,2014,2014-06-18,group,False,Spain,Chile,0,2,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.5059743241870756,0.9593415129026222,B_WIN,A_WIN,0,False,False,False,False
+783,2014,2014-06-23,group,False,Australia,Spain,0,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,2,0.8546025066051396,1.6631655781704733,B_WIN,B_WIN,2,False,True,False,False
+784,2014,2014-06-23,group,False,Netherlands,Chile,2,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.3091351407786935,1.053170027062367,A_WIN,DRAW,0,False,False,False,False
+785,2014,2014-06-14,group,False,Colombia,Greece,3,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.3675354886720226,0.9991158360419847,A_WIN,DRAW,0,False,False,False,False
+786,2014,2014-06-14,group,False,Côte d'Ivoire,Japan,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.6193089085536605,0.9053386161144509,A_WIN,A_WIN,4,True,True,False,False
+787,2014,2014-06-19,group,False,Colombia,Côte d'Ivoire,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.4939581134995563,0.9441782387993679,A_WIN,DRAW,0,False,False,False,False
+788,2014,2014-06-19,group,False,Japan,Greece,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,0.9839825254999458,1.411059478233151,DRAW,DRAW,2,False,True,True,True
+789,2014,2014-06-24,group,False,Japan,Colombia,1,4,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,0.9401535014359005,1.4588915543563998,B_WIN,DRAW,0,False,False,False,False
+790,2014,2014-06-24,group,False,Greece,Côte d'Ivoire,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.4454103684597654,0.9878178583898781,A_WIN,DRAW,0,False,False,False,False
+791,2014,2014-06-14,group,False,Uruguay,Costa Rica,1,3,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.6602120258794835,0.870995460648449,B_WIN,A_WIN,0,False,False,False,False
+792,2014,2014-06-14,group,False,England,Italy,1,2,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2878099859555254,1.0531679192177317,B_WIN,DRAW,0,False,False,False,False
+793,2014,2014-06-19,group,False,Uruguay,England,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.3386621823651237,1.008518469268308,A_WIN,DRAW,0,False,False,False,False
+794,2014,2014-06-20,group,False,Italy,Costa Rica,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.6388801402804178,0.8925797476420106,B_WIN,A_WIN,0,False,False,False,False
+795,2014,2014-06-24,group,False,Italy,Uruguay,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2808532329601896,1.0764337050354047,B_WIN,DRAW,0,False,False,False,False
+796,2014,2014-06-24,group,False,Costa Rica,England,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.0895566526110314,1.2947890380705276,DRAW,DRAW,2,False,True,True,True
+797,2014,2014-06-15,group,False,Switzerland,Ecuador,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.5340133441723653,0.9098007837268872,A_WIN,A_WIN,4,True,True,False,False
+798,2014,2014-06-15,group,False,France,Honduras,3,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.4409710308162587,0.9528685598569904,A_WIN,DRAW,0,False,False,False,False
+799,2014,2014-06-20,group,False,Switzerland,France,2,5,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.3918832669138355,0.9718336771609082,B_WIN,DRAW,0,False,False,False,False
+800,2014,2014-06-20,group,False,Honduras,Ecuador,1,2,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2928080909266233,1.096809864032353,B_WIN,DRAW,0,False,False,False,False
+801,2014,2014-06-25,group,False,Honduras,Switzerland,0,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.082359703904685,1.2383298953377013,B_WIN,DRAW,0,False,False,False,False
+802,2014,2014-06-25,group,False,Ecuador,France,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2013598913735566,1.1504675669907152,DRAW,DRAW,2,False,True,True,True
+803,2014,2014-06-15,group,False,Argentina,Bosnia-Herzegovina,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.5730912458424402,0.9048960846371291,A_WIN,A_WIN,4,True,True,False,False
+804,2014,2014-06-16,group,False,Iran,Nigeria,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.3971031810418697,1.0503239694221427,DRAW,DRAW,2,False,True,True,True
+805,2014,2014-06-21,group,False,Argentina,Iran,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.7349935684386284,0.8320314323663509,A_WIN,A_WIN,3,False,True,False,False
+806,2014,2014-06-21,group,False,Nigeria,Bosnia-Herzegovina,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.140503270155534,1.2509325225827566,A_WIN,DRAW,0,False,False,False,False
+807,2014,2014-06-25,group,False,Nigeria,Argentina,2,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,0.9753441274489941,1.402538143975534,B_WIN,DRAW,0,False,False,False,False
+808,2014,2014-06-25,group,False,Bosnia-Herzegovina,Iran,3,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.4612104343595385,0.9874528108875877,A_WIN,DRAW,0,False,False,False,False
+809,2014,2014-06-16,group,False,Germany,Portugal,4,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.3976711314429378,1.0093804272714406,A_WIN,DRAW,0,False,False,False,False
+810,2014,2014-06-16,group,False,Ghana,USA,1,2,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.1174500276540236,1.265799922100385,B_WIN,DRAW,0,False,False,False,False
+811,2014,2014-06-21,group,False,Germany,Ghana,2,2,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.8154381622359392,0.8117062840859475,DRAW,A_WIN,0,False,False,True,False
+812,2014,2014-06-22,group,False,USA,Portugal,2,2,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.1986322278607886,1.143657631534789,DRAW,DRAW,2,False,True,True,True
+813,2014,2014-06-26,group,False,USA,Germany,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.1696622780672703,1.1706237326459028,B_WIN,DRAW,0,False,False,False,False
+814,2014,2014-06-26,group,False,Portugal,Ghana,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.7489132462861814,0.8153800373771412,A_WIN,A_WIN,4,True,True,False,False
+815,2014,2014-06-17,group,False,Belgium,Algeria,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.4666547047149308,0.964667186374134,A_WIN,DRAW,0,False,False,False,False
+816,2014,2014-06-17,group,False,Russia,South Korea,1,1,"1998,2002,2006,2010",reduced_phase_split_poisson,2,1,1.8169529800342124,0.8289820398191763,DRAW,A_WIN,0,False,False,True,False
+817,2014,2014-06-22,group,False,Belgium,Russia,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.4121063783094046,1.0179043056057782,A_WIN,DRAW,0,False,False,False,False
+818,2014,2014-06-22,group,False,South Korea,Algeria,2,4,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.049928301714595,1.348951838646929,B_WIN,DRAW,0,False,False,False,False
+819,2014,2014-06-26,group,False,South Korea,Belgium,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,0.9530789479626475,1.4784131148622144,B_WIN,DRAW,0,False,False,False,False
+820,2014,2014-06-26,group,False,Algeria,Russia,1,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.254021092529813,1.1217484379087064,DRAW,DRAW,4,True,True,True,True
+821,2014,2014-06-28,round_of_16,True,Brazil,Chile,1,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.478298416013535,0.9379050237883386,DRAW,DRAW,4,True,True,True,True
+822,2014,2014-06-28,round_of_16,True,Colombia,Uruguay,2,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2549235073890754,1.0659983812062916,A_WIN,DRAW,0,False,False,False,False
+823,2014,2014-06-29,round_of_16,True,Netherlands,Mexico,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2685995018717513,0.9603508095057858,A_WIN,DRAW,0,False,False,False,False
+824,2014,2014-06-29,round_of_16,True,Costa Rica,Greece,1,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,0.9598687891099282,1.4108011659259312,DRAW,DRAW,4,True,True,True,True
+825,2014,2014-06-30,round_of_16,True,France,Nigeria,2,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2693224637966967,0.6580962598114489,A_WIN,DRAW,0,False,False,False,False
+826,2014,2014-06-30,round_of_16,True,Germany,Algeria,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.3984505101513498,0.7333632337906654,DRAW,DRAW,2,False,True,True,True
+827,2014,2014-07-01,round_of_16,True,Argentina,Switzerland,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2581915671457657,1.114263689233399,DRAW,DRAW,2,False,True,True,True
+828,2014,2014-07-01,round_of_16,True,Belgium,USA,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.1790323723017624,1.0205919658928786,DRAW,DRAW,2,False,True,True,True
+829,2014,2014-07-04,quarter_final,True,France,Germany,0,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,0.979393067623629,1.429497254450726,B_WIN,DRAW,0,False,False,False,False
+830,2014,2014-07-04,quarter_final,True,Brazil,Colombia,2,1,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.1992541447602723,1.13145579413512,A_WIN,DRAW,0,False,False,False,False
+831,2014,2014-07-05,quarter_final,True,Argentina,Belgium,1,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.1371472218432195,1.0856106202635,A_WIN,DRAW,0,False,False,False,False
+832,2014,2014-07-05,quarter_final,True,Netherlands,Costa Rica,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.1404013954966936,0.798966329305627,DRAW,DRAW,2,False,True,True,True
+833,2014,2014-07-08,semi_final,True,Brazil,Germany,1,7,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.2037729456272648,1.2517454520714022,B_WIN,DRAW,0,False,False,False,False
+834,2014,2014-07-09,semi_final,True,Netherlands,Argentina,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.0820512735942622,1.1971482782494294,DRAW,DRAW,2,False,True,True,True
+835,2014,2014-07-12,third_place,True,Brazil,Netherlands,0,3,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.3862875785407858,1.037856609230836,B_WIN,DRAW,0,False,False,False,False
+836,2014,2014-07-13,final,True,Germany,Argentina,0,0,"1998,2002,2006,2010",reduced_phase_split_poisson,1,1,1.1843651524758887,1.0412624143772036,DRAW,DRAW,2,False,True,True,True
+837,2018,2018-06-14,group,False,Russia,Saudi Arabia,5,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.3350872602713972,1.1791025840784386,A_WIN,DRAW,0,False,False,False,False
+838,2018,2018-06-15,group,False,Egypt,Uruguay,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.9890522615626512,1.5076884070549288,B_WIN,B_WIN,3,False,True,False,False
+839,2018,2018-06-19,group,False,Russia,Egypt,3,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.0848361271886493,1.4009389514921313,A_WIN,DRAW,0,False,False,False,False
+840,2018,2018-06-20,group,False,Uruguay,Saudi Arabia,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.9738619091269645,0.7907389379619858,A_WIN,A_WIN,3,False,True,False,False
+841,2018,2018-06-25,group,False,Uruguay,Russia,3,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.9023779826193743,0.7945695609376604,A_WIN,A_WIN,2,False,True,False,False
+842,2018,2018-06-25,group,False,Saudi Arabia,Egypt,2,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.0573640748019595,1.449502075639262,A_WIN,DRAW,0,False,False,False,False
+843,2018,2018-06-15,group,False,Morocco,Iran,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.231604530563425,1.2333709848051913,B_WIN,DRAW,0,False,False,False,False
+844,2018,2018-06-15,group,False,Portugal,Spain,3,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.335079177104249,1.125310984246048,DRAW,DRAW,2,False,True,True,True
+845,2018,2018-06-20,group,False,Portugal,Morocco,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.7788296000394979,0.8471931284045009,A_WIN,A_WIN,3,False,True,False,False
+846,2018,2018-06-20,group,False,Iran,Spain,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.994559406657065,1.4924869664580758,B_WIN,DRAW,0,False,False,False,False
+847,2018,2018-06-25,group,False,Iran,Portugal,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.9833570917628337,1.5051313453069843,DRAW,B_WIN,0,False,False,True,False
+848,2018,2018-06-25,group,False,Spain,Morocco,2,2,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.712981355390826,0.906119515674771,DRAW,A_WIN,0,False,False,True,False
+849,2018,2018-06-16,group,False,France,Australia,2,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.6483676885179477,0.8920749048875973,A_WIN,A_WIN,4,True,True,False,False
+850,2018,2018-06-16,group,False,Peru,Denmark,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.2761954799632265,1.1663567898267808,B_WIN,DRAW,0,False,False,False,False
+851,2018,2018-06-21,group,False,Denmark,Australia,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.6340044160299392,0.9354997416321832,DRAW,A_WIN,0,False,False,True,False
+852,2018,2018-06-21,group,False,France,Peru,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.268724378755051,1.128832887575217,A_WIN,DRAW,0,False,False,False,False
+853,2018,2018-06-26,group,False,Denmark,France,0,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.2067888655135977,1.222968460587567,DRAW,DRAW,2,False,True,True,True
+854,2018,2018-06-26,group,False,Australia,Peru,0,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,1.0177316954915139,1.5067818779033761,B_WIN,B_WIN,2,False,True,False,False
+855,2018,2018-06-16,group,False,Argentina,Iceland,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.4906397929547224,1.0012735096892131,DRAW,DRAW,4,True,True,True,True
+856,2018,2018-06-16,group,False,Croatia,Nigeria,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.5990309315704136,0.9292175845079913,A_WIN,A_WIN,2,False,True,False,False
+857,2018,2018-06-21,group,False,Argentina,Croatia,0,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.4288512584098225,1.0335158265901707,B_WIN,DRAW,0,False,False,False,False
+858,2018,2018-06-22,group,False,Nigeria,Iceland,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.038704913937866,1.4504687932182772,A_WIN,DRAW,0,False,False,False,False
+859,2018,2018-06-26,group,False,Nigeria,Argentina,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.8946842562249135,1.6665295711327555,B_WIN,B_WIN,4,True,True,False,False
+860,2018,2018-06-26,group,False,Iceland,Croatia,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.2176596094139909,1.2146488845394754,B_WIN,DRAW,0,False,False,False,False
+861,2018,2018-06-17,group,False,Costa Rica,Serbia,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.3722415849726397,1.10166353354704,B_WIN,DRAW,0,False,False,False,False
+862,2018,2018-06-17,group,False,Brazil,Switzerland,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.2897181386848529,1.111942193273992,DRAW,DRAW,4,True,True,True,True
+863,2018,2018-06-22,group,False,Brazil,Costa Rica,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.562316350241387,0.9670985476797888,A_WIN,A_WIN,2,False,True,False,False
+864,2018,2018-06-22,group,False,Serbia,Switzerland,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.9663853804287694,1.4907932161834179,B_WIN,DRAW,0,False,False,False,False
+865,2018,2018-06-27,group,False,Serbia,Brazil,0,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.9598760844441381,1.5958583075399386,B_WIN,B_WIN,2,False,True,False,False
+866,2018,2018-06-27,group,False,Switzerland,Costa Rica,2,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.4960990774598992,1.0244326761089244,DRAW,DRAW,2,False,True,True,True
+867,2018,2018-06-17,group,False,Germany,Mexico,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.4877858213575117,1.030485641283263,B_WIN,DRAW,0,False,False,False,False
+868,2018,2018-06-18,group,False,Sweden,South Korea,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.7541968161319796,0.8686426634392653,A_WIN,A_WIN,3,False,True,False,False
+869,2018,2018-06-23,group,False,South Korea,Mexico,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.8692591814103631,1.7172091049955496,B_WIN,B_WIN,4,True,True,False,False
+870,2018,2018-06-23,group,False,Germany,Sweden,2,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.6045503021789116,0.9584528017802215,A_WIN,A_WIN,4,True,True,False,False
+871,2018,2018-06-27,group,False,South Korea,Germany,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.7686495477055523,1.9335985023531042,A_WIN,B_WIN,0,False,False,False,False
+872,2018,2018-06-27,group,False,Mexico,Sweden,0,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.3320898709763274,1.0807713296868804,B_WIN,DRAW,0,False,False,False,False
+873,2018,2018-06-18,group,False,Belgium,Panama,3,0,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.9683903724636755,0.7705054949079043,A_WIN,A_WIN,2,False,True,False,False
+874,2018,2018-06-18,group,False,Tunisia,England,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.2319695472420766,1.1756624600473642,B_WIN,DRAW,0,False,False,False,False
+875,2018,2018-06-23,group,False,Belgium,Tunisia,5,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.4160274555098165,1.0529215698468226,A_WIN,DRAW,0,False,False,False,False
+876,2018,2018-06-24,group,False,England,Panama,6,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.7732351162346027,0.8299625963156738,A_WIN,A_WIN,2,False,True,False,False
+877,2018,2018-06-28,group,False,England,Belgium,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.1498674794874695,1.2530578349608033,B_WIN,DRAW,0,False,False,False,False
+878,2018,2018-06-28,group,False,Panama,Tunisia,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.919687204271959,1.6332889117311464,B_WIN,B_WIN,4,True,True,False,False
+879,2018,2018-06-19,group,False,Colombia,Japan,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,2,1,1.848651927651531,0.8287168169578157,B_WIN,A_WIN,0,False,False,False,False
+880,2018,2018-06-19,group,False,Poland,Senegal,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.459111827850068,1.0175452201898116,B_WIN,DRAW,0,False,False,False,False
+881,2018,2018-06-24,group,False,Japan,Senegal,2,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.9615953382792007,1.5484744937059691,DRAW,B_WIN,0,False,False,True,False
+882,2018,2018-06-24,group,False,Poland,Colombia,0,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.336754142767017,1.131884209322843,B_WIN,DRAW,0,False,False,False,False
+883,2018,2018-06-28,group,False,Japan,Poland,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,2,0.847296299610246,1.7639381380434145,B_WIN,B_WIN,3,False,True,False,False
+884,2018,2018-06-28,group,False,Senegal,Colombia,0,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.1632944112046866,1.3249114915656743,B_WIN,DRAW,0,False,False,False,False
+885,2018,2018-06-30,round_of_16,True,France,Argentina,4,3,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.9897192015500808,0.9993427981381892,A_WIN,DRAW,0,False,False,False,False
+886,2018,2018-06-30,round_of_16,True,Uruguay,Portugal,2,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.9620848471800617,1.1879792943864362,A_WIN,DRAW,0,False,False,False,False
+887,2018,2018-07-01,round_of_16,True,Spain,Russia,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,2,0,1.5571388241296273,0.28782546035447903,DRAW,A_WIN,0,False,False,True,False
+888,2018,2018-07-01,round_of_16,True,Croatia,Denmark,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.9499078595167556,0.9833325810096012,DRAW,DRAW,4,True,True,True,True
+889,2018,2018-07-02,round_of_16,True,Brazil,Mexico,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.2534958844197523,0.8736426034323856,A_WIN,DRAW,0,False,False,False,False
+890,2018,2018-07-02,round_of_16,True,Belgium,Japan,3,2,"2002,2006,2010,2014",reduced_phase_split_poisson,2,0,1.553479160475704,0.3047362566151232,A_WIN,A_WIN,2,False,True,False,False
+891,2018,2018-07-03,round_of_16,True,Sweden,Switzerland,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.8442560422364607,1.1549640538873651,A_WIN,DRAW,0,False,False,False,False
+892,2018,2018-07-03,round_of_16,True,Colombia,England,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.0230211839634447,0.9624785225758142,DRAW,DRAW,4,True,True,True,True
+893,2018,2018-07-06,quarter_final,True,Uruguay,France,0,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.8378166346071576,1.2222328163997247,B_WIN,DRAW,0,False,False,False,False
+894,2018,2018-07-06,quarter_final,True,Brazil,Belgium,1,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.9894072839640811,1.1321331240752424,B_WIN,DRAW,0,False,False,False,False
+895,2018,2018-07-07,quarter_final,True,Sweden,England,0,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.8305231391054575,1.0750296291135502,B_WIN,DRAW,0,False,False,False,False
+896,2018,2018-07-07,quarter_final,True,Russia,Croatia,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.525990119989,1.3128961389050164,DRAW,DRAW,4,True,True,True,True
+897,2018,2018-07-10,semi_final,True,France,Belgium,1,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.9043444232675089,1.1867028058960285,A_WIN,DRAW,0,False,False,False,False
+898,2018,2018-07-11,semi_final,True,Croatia,England,1,1,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.882255671693276,1.1230026500338757,DRAW,DRAW,4,True,True,True,True
+899,2018,2018-07-14,third_place,True,Belgium,England,2,0,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,1.1176755376433323,1.0097767050748359,A_WIN,DRAW,0,False,False,False,False
+900,2018,2018-07-15,final,True,France,Croatia,4,2,"2002,2006,2010,2014",reduced_phase_split_poisson,1,1,0.9992950915045602,0.8223639191094968,A_WIN,DRAW,0,False,False,False,False
+901,2022,2022-11-20,group,False,Qatar,Ecuador,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.2770829290846741,1.1943442371659552,B_WIN,DRAW,0,False,False,False,False
+902,2022,2022-11-21,group,False,Senegal,Netherlands,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0683863368108095,1.3296836802701315,B_WIN,DRAW,0,False,False,False,False
+903,2022,2022-11-25,group,False,Qatar,Senegal,1,3,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,0.990630713808412,1.4459173597846269,B_WIN,DRAW,0,False,False,False,False
+904,2022,2022-11-25,group,False,Netherlands,Ecuador,1,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.6321115615846273,0.9267568116728021,DRAW,A_WIN,0,False,False,True,False
+905,2022,2022-11-29,group,False,Ecuador,Senegal,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0193737967946201,1.3989218879776102,B_WIN,DRAW,0,False,False,False,False
+906,2022,2022-11-29,group,False,Netherlands,Qatar,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.724729450767072,0.8859779765486286,A_WIN,A_WIN,2,False,True,False,False
+907,2022,2022-11-21,group,False,England,Iran,6,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.336471185299417,1.0706500613085113,A_WIN,DRAW,0,False,False,False,False
+908,2022,2022-11-21,group,False,USA,Wales,1,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.1911657057934544,1.1943557731226833,DRAW,DRAW,4,True,True,True,True
+909,2022,2022-11-25,group,False,Wales,Iran,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.2283601054037467,1.167550474052762,B_WIN,DRAW,0,False,False,False,False
+910,2022,2022-11-25,group,False,England,USA,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.2558806025034404,1.134697956178401,DRAW,DRAW,2,False,True,True,True
+911,2022,2022-11-29,group,False,Wales,England,0,3,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0318920193544052,1.3272470177673783,B_WIN,DRAW,0,False,False,False,False
+912,2022,2022-11-29,group,False,Iran,USA,0,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.1170560462987085,1.2462005360740465,B_WIN,DRAW,0,False,False,False,False
+913,2022,2022-11-22,group,False,Argentina,Saudi Arabia,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.8290350064586822,0.8782113703052561,B_WIN,A_WIN,0,False,False,False,False
+914,2022,2022-11-22,group,False,Mexico,Poland,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.317299092177245,1.0766331068044483,DRAW,DRAW,2,False,True,True,True
+915,2022,2022-11-26,group,False,Poland,Saudi Arabia,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.538266689565485,1.0194338631984607,A_WIN,A_WIN,2,False,True,False,False
+916,2022,2022-11-26,group,False,Argentina,Mexico,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.185405243976339,1.1907188995315543,A_WIN,DRAW,0,False,False,False,False
+917,2022,2022-11-30,group,False,Poland,Argentina,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,0.9562308699514738,1.4387405727380305,B_WIN,DRAW,0,False,False,False,False
+918,2022,2022-11-30,group,False,Saudi Arabia,Mexico,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,2,0.8749275146328922,1.5621712112213337,B_WIN,B_WIN,4,True,True,False,False
+919,2022,2022-11-22,group,False,Denmark,Tunisia,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.4849152359540232,1.0273104442001963,DRAW,DRAW,2,False,True,True,True
+920,2022,2022-11-22,group,False,France,Australia,4,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.6585894633795752,0.9194278854085408,A_WIN,A_WIN,2,False,True,False,False
+921,2022,2022-11-26,group,False,Tunisia,Australia,0,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.3903266001236982,1.117827831950013,B_WIN,DRAW,0,False,False,False,False
+922,2022,2022-11-26,group,False,France,Denmark,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.1801381235219055,1.1606803597203306,A_WIN,DRAW,0,False,False,False,False
+923,2022,2022-11-30,group,False,Australia,Denmark,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,0.9571523916837276,1.4742381341076523,A_WIN,DRAW,0,False,False,False,False
+924,2022,2022-11-30,group,False,Tunisia,France,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,2,0.9024099144840646,1.5014101380366367,A_WIN,B_WIN,0,False,False,False,False
+925,2022,2022-11-23,group,False,Germany,Japan,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.3309512231196106,1.1252707815740242,B_WIN,DRAW,0,False,False,False,False
+926,2022,2022-11-23,group,False,Spain,Costa Rica,7,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.4777624276336505,1.059155746975725,A_WIN,DRAW,0,False,False,False,False
+927,2022,2022-11-27,group,False,Japan,Costa Rica,0,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.3175536734025346,1.1430186004887648,B_WIN,DRAW,0,False,False,False,False
+928,2022,2022-11-27,group,False,Spain,Germany,1,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.1857661702746067,1.2043123982649062,DRAW,DRAW,4,True,True,True,True
+929,2022,2022-12-01,group,False,Japan,Spain,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.010132173311496,1.373466030511853,A_WIN,DRAW,0,False,False,False,False
+930,2022,2022-12-01,group,False,Costa Rica,Germany,2,4,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0039494670202558,1.3491402481815007,B_WIN,DRAW,0,False,False,False,False
+931,2022,2022-11-23,group,False,Morocco,Croatia,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0944638864924396,1.285963116177105,DRAW,DRAW,2,False,True,True,True
+932,2022,2022-11-23,group,False,Belgium,Canada,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.630153287704189,0.9466157549340376,A_WIN,A_WIN,3,False,True,False,False
+933,2022,2022-11-27,group,False,Belgium,Morocco,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.4134606021887888,1.0500869607657444,B_WIN,DRAW,0,False,False,False,False
+934,2022,2022-11-27,group,False,Croatia,Canada,4,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.4654929868285678,1.0405895994664967,A_WIN,DRAW,0,False,False,False,False
+935,2022,2022-12-01,group,False,Croatia,Belgium,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0092362165075877,1.3510159947230973,DRAW,DRAW,2,False,True,True,True
+936,2022,2022-12-01,group,False,Canada,Morocco,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.1094996693821508,1.2952536238931054,B_WIN,DRAW,0,False,False,False,False
+937,2022,2022-11-24,group,False,Switzerland,Cameroon,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.468584791975284,1.0270882386381615,A_WIN,DRAW,0,False,False,False,False
+938,2022,2022-11-24,group,False,Brazil,Serbia,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.3965140681967512,1.018790186297106,A_WIN,DRAW,0,False,False,False,False
+939,2022,2022-11-28,group,False,Cameroon,Serbia,3,3,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.1121658630025226,1.3168512842079283,DRAW,DRAW,2,False,True,True,True
+940,2022,2022-11-28,group,False,Brazil,Switzerland,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.2283697418211246,1.1097201663979746,A_WIN,DRAW,0,False,False,False,False
+941,2022,2022-12-02,group,False,Serbia,Switzerland,2,3,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0459702230820276,1.3034041553071445,B_WIN,DRAW,0,False,False,False,False
+942,2022,2022-12-02,group,False,Cameroon,Brazil,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,2,0.872702896197508,1.609841688661463,A_WIN,B_WIN,0,False,False,False,False
+943,2022,2022-11-24,group,False,Uruguay,South Korea,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.363491575223592,1.0715932654455518,DRAW,DRAW,2,False,True,True,True
+944,2022,2022-11-24,group,False,Portugal,Ghana,3,2,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.9497167525419377,0.8332866013477512,A_WIN,A_WIN,3,False,True,False,False
+945,2022,2022-11-28,group,False,South Korea,Ghana,2,3,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.6930913367457858,0.9461744417208686,B_WIN,A_WIN,0,False,False,False,False
+946,2022,2022-11-28,group,False,Portugal,Uruguay,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.201270092947534,1.1731930636706194,A_WIN,DRAW,0,False,False,False,False
+947,2022,2022-12-02,group,False,Ghana,Uruguay,0,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,2,0.8543765803045275,1.5870809768669272,B_WIN,B_WIN,2,False,True,False,False
+948,2022,2022-12-02,group,False,South Korea,Portugal,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0231986670331286,1.358729312240704,A_WIN,DRAW,0,False,False,False,False
+949,2022,2022-12-03,round_of_16,True,Netherlands,USA,3,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.2411415409596323,0.8516776701276779,A_WIN,DRAW,0,False,False,False,False
+950,2022,2022-12-03,round_of_16,True,Argentina,Australia,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.618170251086056,0.6935418703199933,A_WIN,A_WIN,4,True,True,False,False
+951,2022,2022-12-04,round_of_16,True,France,Poland,3,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.6201019667495238,0.8253463996607422,A_WIN,A_WIN,2,False,True,False,False
+952,2022,2022-12-04,round_of_16,True,England,Senegal,3,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.382558486998465,0.8396671948265324,A_WIN,DRAW,0,False,False,False,False
+953,2022,2022-12-05,round_of_16,True,Japan,Croatia,1,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.1574599061576438,0.8846950459220446,DRAW,DRAW,4,True,True,True,True
+954,2022,2022-12-05,round_of_16,True,Brazil,South Korea,4,1,"2006,2010,2014,2018",reduced_phase_split_poisson,2,1,1.6119773113255218,0.8623814765613055,A_WIN,A_WIN,2,False,True,False,False
+955,2022,2022-12-06,round_of_16,True,Morocco,Spain,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,0.9831333944746073,0.9320885299370559,DRAW,DRAW,2,False,True,True,True
+956,2022,2022-12-06,round_of_16,True,Portugal,Switzerland,6,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.2616820721734514,0.8684795895121294,A_WIN,DRAW,0,False,False,False,False
+957,2022,2022-12-09,quarter_final,True,Croatia,Brazil,0,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,0.9443860052902527,1.1411639120557953,DRAW,DRAW,2,False,True,True,True
+958,2022,2022-12-09,quarter_final,True,Netherlands,Argentina,2,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.0139313775508718,1.075164138967398,DRAW,DRAW,2,False,True,True,True
+959,2022,2022-12-10,quarter_final,True,Morocco,Portugal,1,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,0.9054469824466527,1.016030109000075,A_WIN,DRAW,0,False,False,False,False
+960,2022,2022-12-10,quarter_final,True,England,France,1,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.003464026700871,1.1537757002865374,B_WIN,DRAW,0,False,False,False,False
+961,2022,2022-12-13,semi_final,True,Argentina,Croatia,3,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.254479350661706,1.0781082336624757,A_WIN,DRAW,0,False,False,False,False
+962,2022,2022-12-14,semi_final,True,France,Morocco,2,0,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.393002338448817,0.9791174123401436,A_WIN,DRAW,0,False,False,False,False
+963,2022,2022-12-17,third_place,True,Croatia,Morocco,2,1,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.2014124528567867,0.9260981031265152,A_WIN,DRAW,0,False,False,False,False
+964,2022,2022-12-18,final,True,Argentina,France,2,2,"2006,2010,2014,2018",reduced_phase_split_poisson,1,1,1.1011713797499247,1.1634809090542368,DRAW,DRAW,2,False,True,True,True
