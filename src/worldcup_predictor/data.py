@@ -56,6 +56,18 @@ CATEGORICAL_FEATURES = [
     "confederation_b",
 ]
 FEATURE_COLUMNS = NUMERIC_FEATURES + CATEGORICAL_FEATURES
+REDUCED_NUMERIC_FEATURES = [
+    "is_knockout",
+    "rank_a",
+    "rank_b",
+    "rank_diff",
+]
+REDUCED_CATEGORICAL_FEATURES = [
+    "country_a_code",
+    "country_b_code",
+    "stage",
+]
+REDUCED_FEATURE_COLUMNS = REDUCED_NUMERIC_FEATURES + REDUCED_CATEGORICAL_FEATURES
 TARGET_COLUMNS = ["goals_a_90", "goals_b_90"]
 BACKTEST_YEARS = sorted({year for train_years, test_year in BACKTEST_SPLITS for year in (*train_years, test_year)})
 

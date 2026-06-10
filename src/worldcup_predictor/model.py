@@ -8,7 +8,14 @@ from sklearn.linear_model import PoissonRegressor
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-from .data import CATEGORICAL_FEATURES, FEATURE_COLUMNS, NUMERIC_FEATURES
+from .data import (
+    CATEGORICAL_FEATURES,
+    FEATURE_COLUMNS,
+    NUMERIC_FEATURES,
+    REDUCED_CATEGORICAL_FEATURES,
+    REDUCED_FEATURE_COLUMNS,
+    REDUCED_NUMERIC_FEATURES,
+)
 
 
 def _one_hot_encoder() -> OneHotEncoder:
@@ -18,7 +25,12 @@ def _one_hot_encoder() -> OneHotEncoder:
         return OneHotEncoder(handle_unknown="ignore", sparse=False)
 
 
-def build_goal_pipeline() -> Pipeline:
+def build_goal_pipeline(
+    numeric_features: list[str] | None = None,
+    categorical_features: list[str] | None = None,
+) -> Pipeline:
+    numeric_features = numeric_features or NUMERIC_FEATURES
+    categorical_features = categorical_features or CATEGORICAL_FEATURES
     preprocessor = ColumnTransformer(
         transformers=[
             (
@@ -29,7 +41,7 @@ def build_goal_pipeline() -> Pipeline:
                         ("scaler", StandardScaler()),
                     ]
                 ),
-                NUMERIC_FEATURES,
+                numeric_features,
             ),
             (
                 "categorical",
@@ -39,7 +51,7 @@ def build_goal_pipeline() -> Pipeline:
                         ("onehot", _one_hot_encoder()),
                     ]
                 ),
-                CATEGORICAL_FEATURES,
+                categorical_features,
             ),
         ]
     )
@@ -52,18 +64,24 @@ def build_goal_pipeline() -> Pipeline:
 
 
 class ScorePredictor:
-    def __init__(self) -> None:
-        self.goals_a_model = build_goal_pipeline()
-        self.goals_b_model = build_goal_pipeline()
+    def __init__(
+        self,
+        feature_columns: list[str] | None = None,
+        numeric_features: list[str] | None = None,
+        categorical_features: list[str] | None = None,
+    ) -> None:
+        self.feature_columns = feature_columns or FEATURE_COLUMNS
+        self.goals_a_model = build_goal_pipeline(numeric_features, categorical_features)
+        self.goals_b_model = build_goal_pipeline(numeric_features, categorical_features)
 
     def fit(self, train_rows: pd.DataFrame) -> "ScorePredictor":
-        x_train = train_rows[FEATURE_COLUMNS].copy()
+        x_train = train_rows[self.feature_columns].copy()
         self.goals_a_model.fit(x_train, train_rows["goals_a_90"].astype(int))
         self.goals_b_model.fit(x_train, train_rows["goals_b_90"].astype(int))
         return self
 
     def predict(self, rows: pd.DataFrame) -> pd.DataFrame:
-        x_test = rows[FEATURE_COLUMNS].copy()
+        x_test = rows[self.feature_columns].copy()
         pred_a = self.goals_a_model.predict(x_test)
         pred_b = self.goals_b_model.predict(x_test)
         return pd.DataFrame(
@@ -76,9 +94,14 @@ class ScorePredictor:
 
 
 class PhaseSplitScorePredictor:
-    def __init__(self) -> None:
-        self.group_predictor = ScorePredictor()
-        self.knockout_predictor = ScorePredictor()
+    def __init__(
+        self,
+        feature_columns: list[str] | None = None,
+        numeric_features: list[str] | None = None,
+        categorical_features: list[str] | None = None,
+    ) -> None:
+        self.group_predictor = ScorePredictor(feature_columns, numeric_features, categorical_features)
+        self.knockout_predictor = ScorePredictor(feature_columns, numeric_features, categorical_features)
 
     def fit(self, train_rows: pd.DataFrame) -> "PhaseSplitScorePredictor":
         group_rows = train_rows[~train_rows["is_knockout"].astype(bool)]
@@ -100,6 +123,15 @@ class PhaseSplitScorePredictor:
         if knockout_mask.any():
             predictions.loc[knockout_mask, ["pred_goals_a", "pred_goals_b"]] = self.knockout_predictor.predict(rows[knockout_mask])
         return predictions.astype(int)
+
+
+class ReducedPhaseSplitScorePredictor(PhaseSplitScorePredictor):
+    def __init__(self) -> None:
+        super().__init__(
+            feature_columns=REDUCED_FEATURE_COLUMNS,
+            numeric_features=REDUCED_NUMERIC_FEATURES,
+            categorical_features=REDUCED_CATEGORICAL_FEATURES,
+        )
 
 
 class MostCommonScorePredictor:
