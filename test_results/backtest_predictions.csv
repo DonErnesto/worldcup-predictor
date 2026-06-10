@@ -1,0 +1,257 @@
+match_id,test_year,match_date,stage,country_a,country_b,actual_goals_a,actual_goals_b,train_years,pred_goals_a,pred_goals_b,actual_outcome,pred_outcome,score_points,exact_score,outcome_correct,actual_draw,draw_correct
+709,2010,2010-06-11,group,South Africa,Mexico,1,1,"1994,1998,2002,2006",1,3,DRAW,B_WIN,0,False,False,True,False
+710,2010,2010-06-11,group,Uruguay,France,0,0,"1994,1998,2002,2006",1,1,DRAW,DRAW,2,False,True,True,True
+711,2010,2010-06-16,group,South Africa,Uruguay,0,3,"1994,1998,2002,2006",1,3,B_WIN,B_WIN,2,False,True,False,False
+712,2010,2010-06-17,group,France,Mexico,0,2,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+713,2010,2010-06-22,group,Mexico,Uruguay,0,1,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+714,2010,2010-06-22,group,France,South Africa,1,2,"1994,1998,2002,2006",3,0,B_WIN,A_WIN,0,False,False,False,False
+715,2010,2010-06-12,group,South Korea,Greece,2,0,"1994,1998,2002,2006",1,2,A_WIN,B_WIN,0,False,False,False,False
+716,2010,2010-06-12,group,Argentina,Nigeria,1,0,"1994,1998,2002,2006",2,1,A_WIN,A_WIN,3,False,True,False,False
+717,2010,2010-06-17,group,Argentina,South Korea,4,1,"1994,1998,2002,2006",2,0,A_WIN,A_WIN,2,False,True,False,False
+718,2010,2010-06-17,group,Greece,Nigeria,2,1,"1994,1998,2002,2006",1,1,A_WIN,DRAW,0,False,False,False,False
+719,2010,2010-06-22,group,Nigeria,South Korea,2,2,"1994,1998,2002,2006",2,1,DRAW,A_WIN,0,False,False,True,False
+720,2010,2010-06-22,group,Greece,Argentina,0,2,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+721,2010,2010-06-12,group,England,USA,1,1,"1994,1998,2002,2006",1,1,DRAW,DRAW,4,True,True,True,True
+722,2010,2010-06-13,group,Algeria,Slovenia,0,1,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+723,2010,2010-06-18,group,Slovenia,USA,2,2,"1994,1998,2002,2006",1,1,DRAW,DRAW,2,False,True,True,True
+724,2010,2010-06-18,group,England,Algeria,0,0,"1994,1998,2002,2006",2,1,DRAW,A_WIN,0,False,False,True,False
+725,2010,2010-06-23,group,USA,Algeria,1,0,"1994,1998,2002,2006",1,1,A_WIN,DRAW,0,False,False,False,False
+726,2010,2010-06-23,group,Slovenia,England,0,1,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+727,2010,2010-06-13,group,Serbia,Ghana,0,1,"1994,1998,2002,2006",2,1,B_WIN,A_WIN,0,False,False,False,False
+728,2010,2010-06-13,group,Germany,Australia,4,0,"1994,1998,2002,2006",2,1,A_WIN,A_WIN,2,False,True,False,False
+729,2010,2010-06-18,group,Germany,Serbia,0,1,"1994,1998,2002,2006",2,1,B_WIN,A_WIN,0,False,False,False,False
+730,2010,2010-06-19,group,Ghana,Australia,1,1,"1994,1998,2002,2006",1,1,DRAW,DRAW,4,True,True,True,True
+731,2010,2010-06-23,group,Australia,Serbia,2,1,"1994,1998,2002,2006",1,1,A_WIN,DRAW,0,False,False,False,False
+732,2010,2010-06-23,group,Ghana,Germany,0,1,"1994,1998,2002,2006",1,2,B_WIN,B_WIN,3,False,True,False,False
+733,2010,2010-06-14,group,Netherlands,Denmark,2,0,"1994,1998,2002,2006",2,0,A_WIN,A_WIN,4,True,True,False,False
+734,2010,2010-06-14,group,Japan,Cameroon,1,0,"1994,1998,2002,2006",1,2,A_WIN,B_WIN,0,False,False,False,False
+735,2010,2010-06-19,group,Netherlands,Japan,1,0,"1994,1998,2002,2006",2,0,A_WIN,A_WIN,2,False,True,False,False
+736,2010,2010-06-19,group,Cameroon,Denmark,1,2,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+737,2010,2010-06-24,group,Denmark,Japan,1,3,"1994,1998,2002,2006",2,1,B_WIN,A_WIN,0,False,False,False,False
+738,2010,2010-06-24,group,Cameroon,Netherlands,1,2,"1994,1998,2002,2006",1,2,B_WIN,B_WIN,4,True,True,False,False
+739,2010,2010-06-14,group,Italy,Paraguay,1,1,"1994,1998,2002,2006",2,1,DRAW,A_WIN,0,False,False,True,False
+740,2010,2010-06-15,group,New Zealand,Slovakia,1,1,"1994,1998,2002,2006",1,2,DRAW,B_WIN,0,False,False,True,False
+741,2010,2010-06-20,group,Slovakia,Paraguay,0,2,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+742,2010,2010-06-20,group,Italy,New Zealand,1,1,"1994,1998,2002,2006",3,0,DRAW,A_WIN,0,False,False,True,False
+743,2010,2010-06-24,group,Slovakia,Italy,3,2,"1994,1998,2002,2006",1,2,A_WIN,B_WIN,0,False,False,False,False
+744,2010,2010-06-24,group,Paraguay,New Zealand,0,0,"1994,1998,2002,2006",2,0,DRAW,A_WIN,0,False,False,True,False
+745,2010,2010-06-15,group,Côte d'Ivoire,Portugal,0,0,"1994,1998,2002,2006",1,2,DRAW,B_WIN,0,False,False,True,False
+746,2010,2010-06-15,group,Brazil,North Korea,2,1,"1994,1998,2002,2006",5,0,A_WIN,A_WIN,2,False,True,False,False
+747,2010,2010-06-20,group,Brazil,Côte d'Ivoire,3,1,"1994,1998,2002,2006",2,0,A_WIN,A_WIN,3,False,True,False,False
+748,2010,2010-06-21,group,Portugal,North Korea,7,0,"1994,1998,2002,2006",4,0,A_WIN,A_WIN,2,False,True,False,False
+749,2010,2010-06-25,group,Portugal,Brazil,0,0,"1994,1998,2002,2006",1,2,DRAW,B_WIN,0,False,False,True,False
+750,2010,2010-06-25,group,North Korea,Côte d'Ivoire,0,3,"1994,1998,2002,2006",1,4,B_WIN,B_WIN,3,False,True,False,False
+751,2010,2010-06-16,group,Honduras,Chile,0,1,"1994,1998,2002,2006",1,2,B_WIN,B_WIN,3,False,True,False,False
+752,2010,2010-06-16,group,Spain,Switzerland,0,1,"1994,1998,2002,2006",2,0,B_WIN,A_WIN,0,False,False,False,False
+753,2010,2010-06-21,group,Chile,Switzerland,1,0,"1994,1998,2002,2006",1,1,A_WIN,DRAW,0,False,False,False,False
+754,2010,2010-06-21,group,Spain,Honduras,2,0,"1994,1998,2002,2006",2,0,A_WIN,A_WIN,4,True,True,False,False
+755,2010,2010-06-25,group,Chile,Spain,1,2,"1994,1998,2002,2006",1,3,B_WIN,B_WIN,2,False,True,False,False
+756,2010,2010-06-25,group,Switzerland,Honduras,0,0,"1994,1998,2002,2006",2,1,DRAW,A_WIN,0,False,False,True,False
+757,2010,2010-06-26,round_of_16,Uruguay,South Korea,2,1,"1994,1998,2002,2006",2,1,A_WIN,A_WIN,4,True,True,False,False
+758,2010,2010-06-26,round_of_16,USA,Ghana,1,1,"1994,1998,2002,2006",1,1,DRAW,DRAW,4,True,True,True,True
+759,2010,2010-06-27,round_of_16,Germany,England,4,1,"1994,1998,2002,2006",1,1,A_WIN,DRAW,0,False,False,False,False
+760,2010,2010-06-27,round_of_16,Argentina,Mexico,3,1,"1994,1998,2002,2006",1,1,A_WIN,DRAW,0,False,False,False,False
+761,2010,2010-06-28,round_of_16,Netherlands,Slovakia,2,1,"1994,1998,2002,2006",2,0,A_WIN,A_WIN,2,False,True,False,False
+762,2010,2010-06-28,round_of_16,Brazil,Chile,3,0,"1994,1998,2002,2006",2,0,A_WIN,A_WIN,2,False,True,False,False
+763,2010,2010-06-29,round_of_16,Paraguay,Japan,0,0,"1994,1998,2002,2006",1,1,DRAW,DRAW,2,False,True,True,True
+764,2010,2010-06-29,round_of_16,Spain,Portugal,1,0,"1994,1998,2002,2006",1,1,A_WIN,DRAW,0,False,False,False,False
+765,2010,2010-07-02,quarter_final,Netherlands,Brazil,2,1,"1994,1998,2002,2006",1,2,A_WIN,B_WIN,0,False,False,False,False
+766,2010,2010-07-02,quarter_final,Uruguay,Ghana,1,1,"1994,1998,2002,2006",1,1,DRAW,DRAW,4,True,True,True,True
+767,2010,2010-07-03,quarter_final,Argentina,Germany,0,4,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+768,2010,2010-07-03,quarter_final,Paraguay,Spain,0,1,"1994,1998,2002,2006",1,3,B_WIN,B_WIN,2,False,True,False,False
+769,2010,2010-07-06,semi_final,Uruguay,Netherlands,2,3,"1994,1998,2002,2006",1,2,B_WIN,B_WIN,3,False,True,False,False
+770,2010,2010-07-07,semi_final,Germany,Spain,0,1,"1994,1998,2002,2006",1,2,B_WIN,B_WIN,3,False,True,False,False
+771,2010,2010-07-10,third_place,Uruguay,Germany,2,3,"1994,1998,2002,2006",1,1,B_WIN,DRAW,0,False,False,False,False
+772,2010,2010-07-11,final,Netherlands,Spain,0,0,"1994,1998,2002,2006",1,1,DRAW,DRAW,2,False,True,True,True
+773,2014,2014-06-12,group,Brazil,Croatia,3,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+774,2014,2014-06-13,group,Mexico,Cameroon,1,0,"1998,2002,2006,2010",2,1,A_WIN,A_WIN,3,False,True,False,False
+775,2014,2014-06-17,group,Brazil,Mexico,0,0,"1998,2002,2006,2010",2,1,DRAW,A_WIN,0,False,False,True,False
+776,2014,2014-06-18,group,Cameroon,Croatia,0,4,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+777,2014,2014-06-23,group,Cameroon,Brazil,1,4,"1998,2002,2006,2010",1,2,B_WIN,B_WIN,2,False,True,False,False
+778,2014,2014-06-23,group,Croatia,Mexico,1,3,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+779,2014,2014-06-13,group,Spain,Netherlands,1,5,"1998,2002,2006,2010",2,1,B_WIN,A_WIN,0,False,False,False,False
+780,2014,2014-06-13,group,Chile,Australia,3,1,"1998,2002,2006,2010",2,1,A_WIN,A_WIN,2,False,True,False,False
+781,2014,2014-06-18,group,Australia,Netherlands,2,3,"1998,2002,2006,2010",1,2,B_WIN,B_WIN,3,False,True,False,False
+782,2014,2014-06-18,group,Spain,Chile,0,2,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+783,2014,2014-06-23,group,Australia,Spain,0,3,"1998,2002,2006,2010",1,2,B_WIN,B_WIN,2,False,True,False,False
+784,2014,2014-06-23,group,Netherlands,Chile,2,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+785,2014,2014-06-14,group,Colombia,Greece,3,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+786,2014,2014-06-14,group,Côte d'Ivoire,Japan,2,1,"1998,2002,2006,2010",2,1,A_WIN,A_WIN,4,True,True,False,False
+787,2014,2014-06-19,group,Colombia,Côte d'Ivoire,2,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+788,2014,2014-06-19,group,Japan,Greece,0,0,"1998,2002,2006,2010",1,2,DRAW,B_WIN,0,False,False,True,False
+789,2014,2014-06-24,group,Japan,Colombia,1,4,"1998,2002,2006,2010",1,2,B_WIN,B_WIN,2,False,True,False,False
+790,2014,2014-06-24,group,Greece,Côte d'Ivoire,2,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+791,2014,2014-06-14,group,Uruguay,Costa Rica,1,3,"1998,2002,2006,2010",2,1,B_WIN,A_WIN,0,False,False,False,False
+792,2014,2014-06-14,group,England,Italy,1,2,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+793,2014,2014-06-19,group,Uruguay,England,2,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+794,2014,2014-06-20,group,Italy,Costa Rica,0,1,"1998,2002,2006,2010",2,1,B_WIN,A_WIN,0,False,False,False,False
+795,2014,2014-06-24,group,Italy,Uruguay,0,1,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+796,2014,2014-06-24,group,Costa Rica,England,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+797,2014,2014-06-15,group,Switzerland,Ecuador,2,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+798,2014,2014-06-15,group,France,Honduras,3,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+799,2014,2014-06-20,group,Switzerland,France,2,5,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+800,2014,2014-06-20,group,Honduras,Ecuador,1,2,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+801,2014,2014-06-25,group,Honduras,Switzerland,0,3,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+802,2014,2014-06-25,group,Ecuador,France,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+803,2014,2014-06-15,group,Argentina,Bosnia-Herzegovina,2,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+804,2014,2014-06-16,group,Iran,Nigeria,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+805,2014,2014-06-21,group,Argentina,Iran,1,0,"1998,2002,2006,2010",2,1,A_WIN,A_WIN,3,False,True,False,False
+806,2014,2014-06-21,group,Nigeria,Bosnia-Herzegovina,1,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+807,2014,2014-06-25,group,Nigeria,Argentina,2,3,"1998,2002,2006,2010",1,2,B_WIN,B_WIN,3,False,True,False,False
+808,2014,2014-06-25,group,Bosnia-Herzegovina,Iran,3,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+809,2014,2014-06-16,group,Germany,Portugal,4,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+810,2014,2014-06-16,group,Ghana,USA,1,2,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+811,2014,2014-06-21,group,Germany,Ghana,2,2,"1998,2002,2006,2010",2,1,DRAW,A_WIN,0,False,False,True,False
+812,2014,2014-06-22,group,USA,Portugal,2,2,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+813,2014,2014-06-26,group,USA,Germany,0,1,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+814,2014,2014-06-26,group,Portugal,Ghana,2,1,"1998,2002,2006,2010",2,1,A_WIN,A_WIN,4,True,True,False,False
+815,2014,2014-06-17,group,Belgium,Algeria,2,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+816,2014,2014-06-17,group,Russia,South Korea,1,1,"1998,2002,2006,2010",2,1,DRAW,A_WIN,0,False,False,True,False
+817,2014,2014-06-22,group,Belgium,Russia,1,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+818,2014,2014-06-22,group,South Korea,Algeria,2,4,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+819,2014,2014-06-26,group,South Korea,Belgium,0,1,"1998,2002,2006,2010",1,2,B_WIN,B_WIN,3,False,True,False,False
+820,2014,2014-06-26,group,Algeria,Russia,1,1,"1998,2002,2006,2010",1,1,DRAW,DRAW,4,True,True,True,True
+821,2014,2014-06-28,round_of_16,Brazil,Chile,1,1,"1998,2002,2006,2010",1,1,DRAW,DRAW,4,True,True,True,True
+822,2014,2014-06-28,round_of_16,Colombia,Uruguay,2,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+823,2014,2014-06-29,round_of_16,Netherlands,Mexico,2,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+824,2014,2014-06-29,round_of_16,Costa Rica,Greece,1,1,"1998,2002,2006,2010",1,1,DRAW,DRAW,4,True,True,True,True
+825,2014,2014-06-30,round_of_16,France,Nigeria,2,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+826,2014,2014-06-30,round_of_16,Germany,Algeria,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+827,2014,2014-07-01,round_of_16,Argentina,Switzerland,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+828,2014,2014-07-01,round_of_16,Belgium,USA,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+829,2014,2014-07-04,quarter_final,France,Germany,0,1,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+830,2014,2014-07-04,quarter_final,Brazil,Colombia,2,1,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+831,2014,2014-07-05,quarter_final,Argentina,Belgium,1,0,"1998,2002,2006,2010",1,1,A_WIN,DRAW,0,False,False,False,False
+832,2014,2014-07-05,quarter_final,Netherlands,Costa Rica,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+833,2014,2014-07-08,semi_final,Brazil,Germany,1,7,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+834,2014,2014-07-09,semi_final,Netherlands,Argentina,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+835,2014,2014-07-12,third_place,Brazil,Netherlands,0,3,"1998,2002,2006,2010",1,1,B_WIN,DRAW,0,False,False,False,False
+836,2014,2014-07-13,final,Germany,Argentina,0,0,"1998,2002,2006,2010",1,1,DRAW,DRAW,2,False,True,True,True
+837,2018,2018-06-14,group,Russia,Saudi Arabia,5,0,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+838,2018,2018-06-15,group,Egypt,Uruguay,0,1,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,3,False,True,False,False
+839,2018,2018-06-19,group,Russia,Egypt,3,1,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+840,2018,2018-06-20,group,Uruguay,Saudi Arabia,1,0,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,3,False,True,False,False
+841,2018,2018-06-25,group,Uruguay,Russia,3,0,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,2,False,True,False,False
+842,2018,2018-06-25,group,Saudi Arabia,Egypt,2,1,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+843,2018,2018-06-15,group,Morocco,Iran,0,1,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+844,2018,2018-06-15,group,Portugal,Spain,3,3,"2002,2006,2010,2014",1,1,DRAW,DRAW,2,False,True,True,True
+845,2018,2018-06-20,group,Portugal,Morocco,1,0,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,3,False,True,False,False
+846,2018,2018-06-20,group,Iran,Spain,0,1,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,3,False,True,False,False
+847,2018,2018-06-25,group,Iran,Portugal,1,1,"2002,2006,2010,2014",1,2,DRAW,B_WIN,0,False,False,True,False
+848,2018,2018-06-25,group,Spain,Morocco,2,2,"2002,2006,2010,2014",2,1,DRAW,A_WIN,0,False,False,True,False
+849,2018,2018-06-16,group,France,Australia,2,1,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,4,True,True,False,False
+850,2018,2018-06-16,group,Peru,Denmark,0,1,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+851,2018,2018-06-21,group,Denmark,Australia,1,1,"2002,2006,2010,2014",2,1,DRAW,A_WIN,0,False,False,True,False
+852,2018,2018-06-21,group,France,Peru,1,0,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+853,2018,2018-06-26,group,Denmark,France,0,0,"2002,2006,2010,2014",1,1,DRAW,DRAW,2,False,True,True,True
+854,2018,2018-06-26,group,Australia,Peru,0,2,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,2,False,True,False,False
+855,2018,2018-06-16,group,Argentina,Iceland,1,1,"2002,2006,2010,2014",1,1,DRAW,DRAW,4,True,True,True,True
+856,2018,2018-06-16,group,Croatia,Nigeria,2,0,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,2,False,True,False,False
+857,2018,2018-06-21,group,Argentina,Croatia,0,3,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+858,2018,2018-06-22,group,Nigeria,Iceland,2,0,"2002,2006,2010,2014",1,2,A_WIN,B_WIN,0,False,False,False,False
+859,2018,2018-06-26,group,Nigeria,Argentina,1,2,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,4,True,True,False,False
+860,2018,2018-06-26,group,Iceland,Croatia,1,2,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+861,2018,2018-06-17,group,Costa Rica,Serbia,0,1,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+862,2018,2018-06-17,group,Brazil,Switzerland,1,1,"2002,2006,2010,2014",1,1,DRAW,DRAW,4,True,True,True,True
+863,2018,2018-06-22,group,Brazil,Costa Rica,2,0,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,2,False,True,False,False
+864,2018,2018-06-22,group,Serbia,Switzerland,1,2,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,4,True,True,False,False
+865,2018,2018-06-27,group,Serbia,Brazil,0,2,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,2,False,True,False,False
+866,2018,2018-06-27,group,Switzerland,Costa Rica,2,2,"2002,2006,2010,2014",1,1,DRAW,DRAW,2,False,True,True,True
+867,2018,2018-06-17,group,Germany,Mexico,0,1,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+868,2018,2018-06-18,group,Sweden,South Korea,1,0,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,3,False,True,False,False
+869,2018,2018-06-23,group,South Korea,Mexico,1,2,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,4,True,True,False,False
+870,2018,2018-06-23,group,Germany,Sweden,2,1,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,4,True,True,False,False
+871,2018,2018-06-27,group,South Korea,Germany,2,0,"2002,2006,2010,2014",1,3,A_WIN,B_WIN,0,False,False,False,False
+872,2018,2018-06-27,group,Mexico,Sweden,0,3,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+873,2018,2018-06-18,group,Belgium,Panama,3,0,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,2,False,True,False,False
+874,2018,2018-06-18,group,Tunisia,England,1,2,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+875,2018,2018-06-23,group,Belgium,Tunisia,5,2,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+876,2018,2018-06-24,group,England,Panama,6,1,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,2,False,True,False,False
+877,2018,2018-06-28,group,England,Belgium,0,1,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+878,2018,2018-06-28,group,Panama,Tunisia,1,2,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,4,True,True,False,False
+879,2018,2018-06-19,group,Colombia,Japan,1,2,"2002,2006,2010,2014",2,1,B_WIN,A_WIN,0,False,False,False,False
+880,2018,2018-06-19,group,Poland,Senegal,1,2,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+881,2018,2018-06-24,group,Japan,Senegal,2,2,"2002,2006,2010,2014",1,2,DRAW,B_WIN,0,False,False,True,False
+882,2018,2018-06-24,group,Poland,Colombia,0,3,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+883,2018,2018-06-28,group,Japan,Poland,0,1,"2002,2006,2010,2014",1,2,B_WIN,B_WIN,3,False,True,False,False
+884,2018,2018-06-28,group,Senegal,Colombia,0,1,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+885,2018,2018-06-30,round_of_16,France,Argentina,4,3,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+886,2018,2018-06-30,round_of_16,Uruguay,Portugal,2,1,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+887,2018,2018-07-01,round_of_16,Spain,Russia,1,1,"2002,2006,2010,2014",2,1,DRAW,A_WIN,0,False,False,True,False
+888,2018,2018-07-01,round_of_16,Croatia,Denmark,1,1,"2002,2006,2010,2014",1,1,DRAW,DRAW,4,True,True,True,True
+889,2018,2018-07-02,round_of_16,Brazil,Mexico,2,0,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+890,2018,2018-07-02,round_of_16,Belgium,Japan,3,2,"2002,2006,2010,2014",2,1,A_WIN,A_WIN,3,False,True,False,False
+891,2018,2018-07-03,round_of_16,Sweden,Switzerland,1,0,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+892,2018,2018-07-03,round_of_16,Colombia,England,1,1,"2002,2006,2010,2014",1,1,DRAW,DRAW,4,True,True,True,True
+893,2018,2018-07-06,quarter_final,Uruguay,France,0,2,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+894,2018,2018-07-06,quarter_final,Brazil,Belgium,1,2,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+895,2018,2018-07-07,quarter_final,Sweden,England,0,2,"2002,2006,2010,2014",1,1,B_WIN,DRAW,0,False,False,False,False
+896,2018,2018-07-07,quarter_final,Russia,Croatia,1,1,"2002,2006,2010,2014",1,1,DRAW,DRAW,4,True,True,True,True
+897,2018,2018-07-10,semi_final,France,Belgium,1,0,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+898,2018,2018-07-11,semi_final,Croatia,England,1,1,"2002,2006,2010,2014",1,1,DRAW,DRAW,4,True,True,True,True
+899,2018,2018-07-14,third_place,Belgium,England,2,0,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+900,2018,2018-07-15,final,France,Croatia,4,2,"2002,2006,2010,2014",1,1,A_WIN,DRAW,0,False,False,False,False
+901,2022,2022-11-20,group,Qatar,Ecuador,0,2,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+902,2022,2022-11-21,group,Senegal,Netherlands,0,2,"2006,2010,2014,2018",1,2,B_WIN,B_WIN,2,False,True,False,False
+903,2022,2022-11-25,group,Qatar,Senegal,1,3,"2006,2010,2014,2018",1,2,B_WIN,B_WIN,2,False,True,False,False
+904,2022,2022-11-25,group,Netherlands,Ecuador,1,1,"2006,2010,2014,2018",1,1,DRAW,DRAW,4,True,True,True,True
+905,2022,2022-11-29,group,Ecuador,Senegal,1,2,"2006,2010,2014,2018",1,2,B_WIN,B_WIN,4,True,True,False,False
+906,2022,2022-11-29,group,Netherlands,Qatar,2,0,"2006,2010,2014,2018",2,1,A_WIN,A_WIN,2,False,True,False,False
+907,2022,2022-11-21,group,England,Iran,6,2,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+908,2022,2022-11-21,group,USA,Wales,1,1,"2006,2010,2014,2018",1,1,DRAW,DRAW,4,True,True,True,True
+909,2022,2022-11-25,group,Wales,Iran,0,2,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+910,2022,2022-11-25,group,England,USA,0,0,"2006,2010,2014,2018",1,1,DRAW,DRAW,2,False,True,True,True
+911,2022,2022-11-29,group,Wales,England,0,3,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+912,2022,2022-11-29,group,Iran,USA,0,1,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+913,2022,2022-11-22,group,Argentina,Saudi Arabia,1,2,"2006,2010,2014,2018",2,1,B_WIN,A_WIN,0,False,False,False,False
+914,2022,2022-11-22,group,Mexico,Poland,0,0,"2006,2010,2014,2018",1,1,DRAW,DRAW,2,False,True,True,True
+915,2022,2022-11-26,group,Poland,Saudi Arabia,2,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+916,2022,2022-11-26,group,Argentina,Mexico,2,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+917,2022,2022-11-30,group,Poland,Argentina,0,2,"2006,2010,2014,2018",1,2,B_WIN,B_WIN,2,False,True,False,False
+918,2022,2022-11-30,group,Saudi Arabia,Mexico,1,2,"2006,2010,2014,2018",1,2,B_WIN,B_WIN,4,True,True,False,False
+919,2022,2022-11-22,group,Denmark,Tunisia,0,0,"2006,2010,2014,2018",1,1,DRAW,DRAW,2,False,True,True,True
+920,2022,2022-11-22,group,France,Australia,4,1,"2006,2010,2014,2018",2,1,A_WIN,A_WIN,2,False,True,False,False
+921,2022,2022-11-26,group,Tunisia,Australia,0,1,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+922,2022,2022-11-26,group,France,Denmark,2,1,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+923,2022,2022-11-30,group,Australia,Denmark,1,0,"2006,2010,2014,2018",1,2,A_WIN,B_WIN,0,False,False,False,False
+924,2022,2022-11-30,group,Tunisia,France,1,0,"2006,2010,2014,2018",1,2,A_WIN,B_WIN,0,False,False,False,False
+925,2022,2022-11-23,group,Germany,Japan,1,2,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+926,2022,2022-11-23,group,Spain,Costa Rica,7,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+927,2022,2022-11-27,group,Japan,Costa Rica,0,1,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+928,2022,2022-11-27,group,Spain,Germany,1,1,"2006,2010,2014,2018",1,1,DRAW,DRAW,4,True,True,True,True
+929,2022,2022-12-01,group,Japan,Spain,2,1,"2006,2010,2014,2018",1,2,A_WIN,B_WIN,0,False,False,False,False
+930,2022,2022-12-01,group,Costa Rica,Germany,2,4,"2006,2010,2014,2018",1,2,B_WIN,B_WIN,2,False,True,False,False
+931,2022,2022-11-23,group,Morocco,Croatia,0,0,"2006,2010,2014,2018",1,2,DRAW,B_WIN,0,False,False,True,False
+932,2022,2022-11-23,group,Belgium,Canada,1,0,"2006,2010,2014,2018",2,1,A_WIN,A_WIN,3,False,True,False,False
+933,2022,2022-11-27,group,Belgium,Morocco,0,2,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+934,2022,2022-11-27,group,Croatia,Canada,4,1,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+935,2022,2022-12-01,group,Croatia,Belgium,0,0,"2006,2010,2014,2018",1,2,DRAW,B_WIN,0,False,False,True,False
+936,2022,2022-12-01,group,Canada,Morocco,1,2,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+937,2022,2022-11-24,group,Switzerland,Cameroon,1,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+938,2022,2022-11-24,group,Brazil,Serbia,2,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+939,2022,2022-11-28,group,Cameroon,Serbia,3,3,"2006,2010,2014,2018",1,2,DRAW,B_WIN,0,False,False,True,False
+940,2022,2022-11-28,group,Brazil,Switzerland,1,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+941,2022,2022-12-02,group,Serbia,Switzerland,2,3,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+942,2022,2022-12-02,group,Cameroon,Brazil,1,0,"2006,2010,2014,2018",1,2,A_WIN,B_WIN,0,False,False,False,False
+943,2022,2022-11-24,group,Uruguay,South Korea,0,0,"2006,2010,2014,2018",1,1,DRAW,DRAW,2,False,True,True,True
+944,2022,2022-11-24,group,Portugal,Ghana,3,2,"2006,2010,2014,2018",2,1,A_WIN,A_WIN,3,False,True,False,False
+945,2022,2022-11-28,group,South Korea,Ghana,2,3,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+946,2022,2022-11-28,group,Portugal,Uruguay,2,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+947,2022,2022-12-02,group,Ghana,Uruguay,0,2,"2006,2010,2014,2018",1,2,B_WIN,B_WIN,2,False,True,False,False
+948,2022,2022-12-02,group,South Korea,Portugal,2,1,"2006,2010,2014,2018",1,2,A_WIN,B_WIN,0,False,False,False,False
+949,2022,2022-12-03,round_of_16,Netherlands,USA,3,1,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+950,2022,2022-12-03,round_of_16,Argentina,Australia,2,1,"2006,2010,2014,2018",2,1,A_WIN,A_WIN,4,True,True,False,False
+951,2022,2022-12-04,round_of_16,France,Poland,3,1,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+952,2022,2022-12-04,round_of_16,England,Senegal,3,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+953,2022,2022-12-05,round_of_16,Japan,Croatia,1,1,"2006,2010,2014,2018",1,1,DRAW,DRAW,4,True,True,True,True
+954,2022,2022-12-05,round_of_16,Brazil,South Korea,4,1,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+955,2022,2022-12-06,round_of_16,Morocco,Spain,0,0,"2006,2010,2014,2018",1,1,DRAW,DRAW,2,False,True,True,True
+956,2022,2022-12-06,round_of_16,Portugal,Switzerland,6,1,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+957,2022,2022-12-09,quarter_final,Croatia,Brazil,0,0,"2006,2010,2014,2018",1,2,DRAW,B_WIN,0,False,False,True,False
+958,2022,2022-12-09,quarter_final,Netherlands,Argentina,2,2,"2006,2010,2014,2018",1,1,DRAW,DRAW,2,False,True,True,True
+959,2022,2022-12-10,quarter_final,Morocco,Portugal,1,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+960,2022,2022-12-10,quarter_final,England,France,1,2,"2006,2010,2014,2018",1,1,B_WIN,DRAW,0,False,False,False,False
+961,2022,2022-12-13,semi_final,Argentina,Croatia,3,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+962,2022,2022-12-14,semi_final,France,Morocco,2,0,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+963,2022,2022-12-17,third_place,Croatia,Morocco,2,1,"2006,2010,2014,2018",1,1,A_WIN,DRAW,0,False,False,False,False
+964,2022,2022-12-18,final,Argentina,France,2,2,"2006,2010,2014,2018",1,1,DRAW,DRAW,2,False,True,True,True

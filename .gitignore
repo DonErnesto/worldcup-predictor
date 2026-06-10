@@ -17,5 +17,6 @@ npm-debug.log*
 # Generated local artifacts
 test_results/*
 !test_results/.gitkeep
+!test_results/*.csv
 models/*
 !models/.gitkeep

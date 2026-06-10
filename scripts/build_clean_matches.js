@@ -7,11 +7,15 @@ const OUT_PATH = path.join("data", "processed", "world_cup_matches.csv");
 
 const TEAM_ALIASES = new Map([
   ["Bosnia & Herzegovina", "Bosnia and Herzegovina"],
+  ["Bosnia-Herzegovina", "Bosnia and Herzegovina"],
   ["Cape Verde", "Cabo Verde"],
+  ["China", "China PR"],
   ["Czech Republic", "Czechia"],
   ["DR Congo", "Congo DR"],
+  ["Ireland", "Republic of Ireland"],
   ["Iran", "IR Iran"],
   ["Ivory Coast", "Côte d'Ivoire"],
+  ["North Korea", "Korea DPR"],
   ["South Korea", "Korea Republic"],
   ["Turkey", "Türkiye"],
   ["United States", "USA"],
@@ -62,11 +66,17 @@ function isKnockout(stage) {
 
 function parseDateLine(line, year) {
   const clean = line.trim();
-  const match = clean.match(/^(?:(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+)?([A-Za-z]+)\s+(\d{1,2})\b/);
-  if (!match) return null;
-  const month = MONTHS.get(match[1]);
+  const monthDay = clean.match(/^(?:(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+)?([A-Za-z]+)\s+(\d{1,2})\b/);
+  if (monthDay) {
+    const month = MONTHS.get(monthDay[1]);
+    if (!month) return null;
+    return `${year}-${month}-${String(monthDay[2]).padStart(2, "0")}`;
+  }
+  const dayMonth = clean.match(/^(?:\d{1,2}:\d{2}\s+)?(\d{1,2})\s+([A-Za-z]+)\b/);
+  if (!dayMonth) return null;
+  const month = MONTHS.get(dayMonth[2]);
   if (!month) return null;
-  return `${year}-${month}-${String(match[2]).padStart(2, "0")}`;
+  return `${year}-${month}-${String(dayMonth[1]).padStart(2, "0")}`;
 }
 
 function stripLeadIn(text) {
@@ -75,6 +85,8 @@ function stripLeadIn(text) {
     .replace(/^\(\d+\)\s*/, "")
     .replace(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+[A-Za-z]+\s+\d{1,2}\s+(?:\d{1,2}:\d{2}\s+)?/, "")
     .replace(/^[A-Za-z]+\s+\d{1,2}\s+(?:\d{1,2}:\d{2}\s+)?/, "")
+    .replace(/^(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\s+\d{1,2}\s+[A-Za-z]+\s+(?:\d{1,2}:\d{2}\s+)?/, "")
+    .replace(/^\d{1,2}\s+[A-Za-z]+\s+(?:\d{1,2}:\d{2}\s+)?/, "")
     .replace(/^\d{1,2}:\d{2}(?:\s+UTC[+-]\d+)?\s+/, "")
     .trim();
 }
@@ -124,6 +136,26 @@ function consumeScoreDetails(rest) {
 
 function parsePlayedMatch(beforeVenue) {
   const before = stripLeadIn(beforeVenue);
+  const penaltiesThenScore = before.match(/^(.+?)\s+(\d+)\s*-\s*(\d+)\s+pen\.?\s+(\d+)\s*-\s*(\d+)\s+a\.?e\.?t\.?\s*(\([^)]*\))?\s+(.+)$/i);
+  if (penaltiesThenScore) {
+    const teamA = penaltiesThenScore[1].trim();
+    const teamB = penaltiesThenScore[7].trim();
+    const goalsA90 = Number(penaltiesThenScore[4]);
+    const goalsB90 = Number(penaltiesThenScore[5]);
+    return {
+      country_a: teamA,
+      country_b: teamB,
+      goals_a_90: goalsA90,
+      goals_b_90: goalsB90,
+      goals_a_after_extra_time: goalsA90,
+      goals_b_after_extra_time: goalsB90,
+      penalties_a: Number(penaltiesThenScore[2]),
+      penalties_b: Number(penaltiesThenScore[3]),
+      extra_time: true,
+      score_details: `${penaltiesThenScore[2]}-${penaltiesThenScore[3]} pen. ${goalsA90}-${goalsB90} a.e.t. ${penaltiesThenScore[6] || ""}`.trim(),
+    };
+  }
+
   const fixtureThenScore = before.match(/^(.+?)\s+v\s+(.+?)\s+(\d+)\s*-\s*(\d+)(.*)$/);
   if (fixtureThenScore) {
     const details = consumeScoreDetails(fixtureThenScore[5]);
@@ -224,7 +256,7 @@ function rankingFor(rankingsByYear, year, team) {
   const rankingYear = rankingsByYear.has(year) ? year : null;
   if (!rankingYear) return null;
   const table = rankingsByYear.get(rankingYear);
-  return table.get(teamLookupName(team)) || null;
+  return table.get(teamLookupName(team)) || table.get(team) || null;
 }
 
 function parseTournamentFile(filePath, tournamentYear) {
