@@ -14,25 +14,34 @@ from worldcup_predictor.evaluation import evaluate_predictions
 from worldcup_predictor.model import ModeScorePhaseSplitScorePredictor
 
 
-ALPHAS = (0.1, 0.3, 1.0, 3.0, 10.0)
+DEFAULT_ALPHAS = (0.1, 0.3, 1.0, 3.0, 10.0)
 TRAIN_WINDOW = 4
 PREDICTOR_NAME = "mode_score_phase_split_poisson"
 
 
 def main() -> None:
+    alphas = tuple(float(value) for value in sys.argv[1:]) or DEFAULT_ALPHAS
     matches = load_matches(REPO_ROOT / "data/processed/world_cup_matches.csv")
     output_dir = REPO_ROOT / "test_results"
     output_dir.mkdir(parents=True, exist_ok=True)
 
     prediction_frames = []
     summary_frames = []
-    for alpha in ALPHAS:
+    for alpha in alphas:
         predictions, summary = run_alpha_backtest(matches, alpha=alpha)
         prediction_frames.append(predictions)
         summary_frames.append(summary)
 
-    predictions = pd.concat(prediction_frames, ignore_index=True)
-    summary_by_year = pd.concat(summary_frames, ignore_index=True)
+    predictions = _merge_existing(
+        output_dir / "mode_score_poisson_alpha_tuning_predictions.csv",
+        pd.concat(prediction_frames, ignore_index=True),
+        alphas,
+    )
+    summary_by_year = _merge_existing(
+        output_dir / "mode_score_poisson_alpha_tuning_summary_by_year.csv",
+        pd.concat(summary_frames, ignore_index=True),
+        alphas,
+    )
     summary_overall = (
         predictions.groupby("alpha", as_index=False)
         .agg(
@@ -111,6 +120,16 @@ def run_alpha_backtest(matches: pd.DataFrame, alpha: float) -> tuple[pd.DataFram
     summary.insert(0, "alpha", alpha)
     summary.insert(1, "train_window", TRAIN_WINDOW)
     return evaluated, summary
+
+
+def _merge_existing(path: Path, fresh_rows: pd.DataFrame, alphas: tuple[float, ...]) -> pd.DataFrame:
+    if not path.exists():
+        return fresh_rows.sort_values(["alpha", "test_year", "match_id"], ignore_index=True)
+    existing = pd.read_csv(path)
+    existing = existing[~existing["alpha"].isin(alphas)]
+    merged = pd.concat([existing, fresh_rows], ignore_index=True)
+    sort_columns = [column for column in ["alpha", "test_year", "match_id"] if column in merged.columns]
+    return merged.sort_values(sort_columns, ignore_index=True)
 
 
 if __name__ == "__main__":
