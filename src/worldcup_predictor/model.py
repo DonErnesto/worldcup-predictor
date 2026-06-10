@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import math
+
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
@@ -72,8 +74,12 @@ class ScorePredictor:
         feature_columns: list[str] | None = None,
         numeric_features: list[str] | None = None,
         categorical_features: list[str] | None = None,
+        score_selection: str = "rounded",
     ) -> None:
         self.feature_columns = feature_columns or FEATURE_COLUMNS
+        if score_selection not in {"rounded", "mode"}:
+            raise ValueError("score_selection must be 'rounded' or 'mode'")
+        self.score_selection = score_selection
         self.goals_a_model = build_goal_pipeline(numeric_features, categorical_features)
         self.goals_b_model = build_goal_pipeline(numeric_features, categorical_features)
 
@@ -85,6 +91,12 @@ class ScorePredictor:
 
     def predict(self, rows: pd.DataFrame) -> pd.DataFrame:
         rates = self.predict_rates(rows)
+        if self.score_selection == "mode":
+            scores = [
+                most_likely_independent_poisson_score(expected_a, expected_b)
+                for expected_a, expected_b in zip(rates["expected_goals_a"], rates["expected_goals_b"])
+            ]
+            return pd.DataFrame(scores, columns=["pred_goals_a", "pred_goals_b"], index=rows.index)
         return pd.DataFrame(
             {
                 "pred_goals_a": np.rint(np.clip(rates["expected_goals_a"], 0, None)).astype(int),
@@ -119,9 +131,10 @@ class PhaseSplitScorePredictor:
         feature_columns: list[str] | None = None,
         numeric_features: list[str] | None = None,
         categorical_features: list[str] | None = None,
+        score_selection: str = "rounded",
     ) -> None:
-        self.group_predictor = ScorePredictor(feature_columns, numeric_features, categorical_features)
-        self.knockout_predictor = ScorePredictor(feature_columns, numeric_features, categorical_features)
+        self.group_predictor = ScorePredictor(feature_columns, numeric_features, categorical_features, score_selection)
+        self.knockout_predictor = ScorePredictor(feature_columns, numeric_features, categorical_features, score_selection)
 
     def fit(self, train_rows: pd.DataFrame) -> "PhaseSplitScorePredictor":
         group_rows = train_rows[~train_rows["is_knockout"].astype(bool)]
@@ -181,6 +194,11 @@ class NormalizedPointsPhaseSplitScorePredictor(PhaseSplitScorePredictor):
         )
 
 
+class ModeScorePhaseSplitScorePredictor(PhaseSplitScorePredictor):
+    def __init__(self) -> None:
+        super().__init__(score_selection="mode")
+
+
 class MostCommonScorePredictor:
     def __init__(self, by_phase: bool = True) -> None:
         self.by_phase = by_phase
@@ -237,3 +255,66 @@ def _clean_feature_name(name: str) -> str:
         if name.startswith(prefix):
             return name.removeprefix(prefix)
     return name
+
+
+def most_likely_independent_poisson_score(
+    expected_goals_a: float,
+    expected_goals_b: float,
+    max_goals: int = 10,
+) -> tuple[int, int]:
+    likelihoods = independent_poisson_score_likelihoods(expected_goals_a, expected_goals_b, max_goals=max_goals)
+    best = likelihoods.sort_values(["probability", "goals_a", "goals_b"], ascending=[False, True, True]).iloc[0]
+    return int(best.goals_a), int(best.goals_b)
+
+
+def independent_poisson_score_likelihoods(
+    expected_goals_a: float,
+    expected_goals_b: float,
+    max_goals: int = 10,
+) -> pd.DataFrame:
+    pmf_a = _poisson_pmf(float(expected_goals_a), max_goals=max_goals)
+    pmf_b = _poisson_pmf(float(expected_goals_b), max_goals=max_goals)
+    rows = []
+    for goals_a, prob_a in enumerate(pmf_a):
+        for goals_b, prob_b in enumerate(pmf_b):
+            rows.append(
+                {
+                    "goals_a": goals_a,
+                    "goals_b": goals_b,
+                    "score": f"{goals_a}-{goals_b}",
+                    "score_shape": _score_shape(goals_a, goals_b),
+                    "probability": prob_a * prob_b,
+                }
+            )
+    return pd.DataFrame(rows)
+
+
+def symmetric_score_shape_likelihoods(
+    expected_goals_a: float,
+    expected_goals_b: float,
+    max_goals: int = 10,
+) -> pd.DataFrame:
+    likelihoods = independent_poisson_score_likelihoods(expected_goals_a, expected_goals_b, max_goals=max_goals)
+    ranked = (
+        likelihoods.groupby("score_shape", as_index=False)
+        .agg(probability=("probability", "sum"))
+        .sort_values(["probability", "score_shape"], ascending=[False, True])
+        .reset_index(drop=True)
+    )
+    ranked["rank"] = ranked.index + 1
+    ranked["cumulative_probability"] = ranked["probability"].cumsum()
+    return ranked[["rank", "score_shape", "probability", "cumulative_probability"]]
+
+
+def _poisson_pmf(mean: float, max_goals: int) -> list[float]:
+    mean = max(mean, 0.0)
+    probabilities = [math.exp(-mean)]
+    for goals in range(1, max_goals + 1):
+        probabilities.append(probabilities[-1] * mean / goals)
+    return probabilities
+
+
+def _score_shape(goals_a: int, goals_b: int) -> str:
+    high = max(goals_a, goals_b)
+    low = min(goals_a, goals_b)
+    return f"{high}-{low}"

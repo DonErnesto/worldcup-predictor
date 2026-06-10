@@ -8,10 +8,14 @@ from worldcup_predictor.data import (
     split_train_test,
 )
 from worldcup_predictor.model import (
+    ModeScorePhaseSplitScorePredictor,
     MostCommonScorePredictor,
     NormalizedPointsPhaseSplitScorePredictor,
     PhaseSplitScorePredictor,
     ReducedPhaseSplitScorePredictor,
+    independent_poisson_score_likelihoods,
+    most_likely_independent_poisson_score,
+    symmetric_score_shape_likelihoods,
 )
 
 
@@ -89,6 +93,30 @@ def test_normalized_points_phase_split_predictor_uses_normalized_points_feature(
     assert list(predictions.columns) == ["pred_goals_a", "pred_goals_b"]
     assert len(predictions) == 4
     assert (predictions >= 0).all().all()
+
+
+def test_mode_score_predictor_uses_most_likely_poisson_score_not_rounded_mean():
+    assert most_likely_independent_poisson_score(2.81, 0.28) == (2, 0)
+
+    matches = load_matches()
+    train, test = split_train_test(matches, split=BacktestSplit((2006, 2010, 2014, 2018), 2022))
+    predictor = ModeScorePhaseSplitScorePredictor().fit(train)
+    sample = test.head(4)
+    predictions = predictor.predict(sample)
+    assert list(predictions.columns) == ["pred_goals_a", "pred_goals_b"]
+    assert len(predictions) == 4
+    assert (predictions >= 0).all().all()
+
+
+def test_symmetric_score_shape_likelihoods_fold_mirrored_scores():
+    ranking = symmetric_score_shape_likelihoods(1.4, 1.4, max_goals=4)
+    assert ranking.iloc[0]["score_shape"] == "1-0"
+    assert ranking["cumulative_probability"].is_monotonic_increasing
+
+    one_nil = ranking[ranking["score_shape"] == "1-0"]["probability"].iloc[0]
+    raw = independent_poisson_score_likelihoods(1.4, 1.4, max_goals=4)
+    raw_mirrored = raw[raw["score"].isin(["1-0", "0-1"])]["probability"].sum()
+    assert one_nil == raw_mirrored
 
 
 def test_most_common_score_predictor_uses_phase_specific_scores():
